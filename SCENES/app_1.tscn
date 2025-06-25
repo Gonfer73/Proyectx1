@@ -1,0 +1,382 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://SPRITES/turn_off_button-1.png" type="Texture" id=1]
+[ext_resource path="res://SCRIPTS/app_1.gd" type="Script" id=2]
+[ext_resource path="res://SPRITES/back_computer-1.png" type="Texture" id=3]
+[ext_resource path="res://SPRITES/back_light-blue-1.png.png" type="Texture" id=4]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 10
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=16]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=17]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=18]
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=19]
+font_data = ExtResource( 5 )
+
+[node name="app_1" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="back_light-blue-1png" type="Sprite" parent="."]
+position = Vector2( 796.663, 417.506 )
+scale = Vector2( 49.3661, 25.8371 )
+texture = ExtResource( 4 )
+
+[node name="back_computer-1" type="Sprite" parent="."]
+position = Vector2( 324.298, 414.835 )
+scale = Vector2( 0.618157, 0.775578 )
+texture = ExtResource( 3 )
+
+[node name="back_computer-2" type="Sprite" parent="."]
+position = Vector2( 1262.3, 414.835 )
+scale = Vector2( 0.618157, 0.775578 )
+texture = ExtResource( 3 )
+
+[node name="button_off_app_1" type="Button" parent="."]
+margin_left = 1487.23
+margin_top = 729.131
+margin_right = 1563.23
+margin_bottom = 799.131
+icon = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_1" type="Label" parent="."]
+margin_left = 27.3656
+margin_top = 56.9439
+margin_right = 2594.36
+margin_bottom = 835.944
+rect_scale = Vector2( 1.04, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "
+INFORME DE DETENCIÓN
+
+Número de expediente:        /SEV-JD-231
+Fecha de detención: 13 de marzo de 2025
+Lugar: Sevilla, España
+Autoridad judicial competente: Juzgado de Instrucción nº U de Sevilla
+Juez instructor: Gonzalo Sergio Ferrer Estella
+
+Datos personales de la persona detenida
+Nombre completo: 
+DNI: 
+Fecha de nacimiento:      de                   de  
+Edad:     años
+Nacionalidad: 
+
+
+Circunstancias administrativas
+
+En base a los derechos constitucionales y estatatales del detenido, este se acoge a sus
+derechos, sin embargo también se responasibiliza de sus responsabilidades sociales y 
+jurídicas.
+
+El detenido se puede acoger a su derecho de no declarar antes de la celebración del juicio.
+
+Tiene derecho a un abogado para su defensa, en caso de que sus circustancias económicas 
+no se lo permitan se le asignara un abogado de ofico.
+
+El detenido tiene plenitud de derechos para saber su motivio de detención.
+
+Tiene completo derecho legal  a permanecer en completo silencio durante su 
+estancia tanto en instancias policiales como durante su detención.
+
+El derecho a presentarse ante una autoridad jurídica antes de su condena o de su liberación
+en caso de ser liberado.
+
+Completa y obligada responsabilidad de su persona y de sus bienes, la requisión de estos 
+últimos quedará a cargo de las respectivas autoridades policiales.
+
+Tiene entera responsabilidad de asumir que no volverá a cometer el acto delictivo cometido.
+
+Firmado y escrutado con exactidud y completa objetividad por su señor
+
+Gonzalo Sergio Ferrer Estella
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_2" type="Label" parent="."]
+margin_left = 187.375
+margin_top = 108.136
+margin_right = 227.375
+margin_bottom = 122.136
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "999"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_3" type="Label" parent="."]
+margin_left = 128.309
+margin_top = 227.105
+margin_right = 168.309
+margin_bottom = 241.105
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Francisco Franco"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_4" type="Label" parent="."]
+margin_left = 62.6857
+margin_top = 242.916
+margin_right = 163.686
+margin_bottom = 256.916
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "20599449858-K"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_5" type="Label" parent="."]
+margin_left = 159.326
+margin_top = 260.936
+margin_right = 260.326
+margin_bottom = 274.936
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_6" type="Label" parent="."]
+margin_left = 209.346
+margin_top = 259.589
+margin_right = 310.346
+margin_bottom = 273.589
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "999"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_7" type="Label" parent="."]
+margin_left = 341.421
+margin_top = 260.351
+margin_right = 442.421
+margin_bottom = 274.351
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1990"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_8" type="Label" parent="."]
+margin_left = 65.3554
+margin_top = 277.621
+margin_right = 166.355
+margin_bottom = 308.621
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "99
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="l_9" type="Label" parent="."]
+margin_left = 106.491
+margin_top = 294.895
+margin_right = 207.491
+margin_bottom = 325.895
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Francés
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_2" type="LineEdit" parent="."]
+margin_left = 973.556
+margin_top = 59.0
+margin_right = 1229.56
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 10 )
+text = "NUM PROCESO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_3" type="LineEdit" parent="."]
+margin_left = 1288.0
+margin_top = 56.0
+margin_right = 1544.0
+margin_bottom = 127.0
+custom_fonts/font = SubResource( 11 )
+text = "NOMBRE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_4" type="LineEdit" parent="."]
+margin_left = 973.0
+margin_top = 184.0
+margin_right = 1229.0
+margin_bottom = 255.0
+custom_fonts/font = SubResource( 12 )
+text = "DNI"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_5" type="LineEdit" parent="."]
+margin_left = 1288.0
+margin_top = 184.0
+margin_right = 1544.0
+margin_bottom = 255.0
+custom_fonts/font = SubResource( 13 )
+text = "DÍA NACIMIENTO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_6" type="LineEdit" parent="."]
+margin_left = 976.0
+margin_top = 312.0
+margin_right = 1232.0
+margin_bottom = 383.0
+custom_fonts/font = SubResource( 14 )
+text = "MES NACIMIENTO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_7" type="LineEdit" parent="."]
+margin_left = 1288.0
+margin_top = 312.0
+margin_right = 1544.0
+margin_bottom = 383.0
+custom_fonts/font = SubResource( 15 )
+text = "AÑO NACIMIENTO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_8" type="LineEdit" parent="."]
+margin_left = 976.0
+margin_top = 432.0
+margin_right = 1232.0
+margin_bottom = 503.0
+custom_fonts/font = SubResource( 16 )
+text = "EDAD"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_l_9" type="LineEdit" parent="."]
+margin_left = 1288.0
+margin_top = 432.0
+margin_right = 1544.0
+margin_bottom = 503.0
+custom_fonts/font = SubResource( 17 )
+text = "NACIONALIDAD"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="send_button" type="Button" parent="."]
+margin_left = 1080.0
+margin_top = 536.0
+margin_right = 1440.0
+margin_bottom = 588.0
+custom_fonts/font = SubResource( 18 )
+text = "ENVIAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="."]
+anchor_left = 0.011
+anchor_right = 0.73
+margin_left = 12.7318
+margin_top = 3.41324
+margin_right = 220.732
+margin_bottom = 46.4132
+rect_scale = Vector2( 1.58047, 1.72202 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="button_off_app_1" to="." method="_on_button_off_app_1_pressed"]
+[connection signal="pressed" from="send_button" to="." method="_on_send_button_pressed"]

@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://SPRITES/player_1-1.png" type="Texture" id=1]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://SCRIPTS/app_2.gd" type="Script" id=3]
+[ext_resource path="res://SPRITES/turn_off_button-1.png" type="Texture" id=4]
+[ext_resource path="res://SPRITES/screen-1.png" type="Texture" id=5]
+[ext_resource path="res://SPRITES/back_computer-1.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="App2" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="app_2_back" type="Sprite" parent="."]
+position = Vector2( 840.49, 492.14 )
+scale = Vector2( 32.7498, 19.9728 )
+texture = ExtResource( 1 )
+
+[node name="button_off_app_1" type="Button" parent="."]
+margin_left = 1487.23
+margin_top = 729.131
+margin_right = 1563.23
+margin_bottom = 799.131
+icon = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_name" type="LineEdit" parent="."]
+margin_left = 1000.0
+margin_top = 144.0
+margin_right = 1430.0
+margin_bottom = 234.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pl_nm_lb" type="Label" parent="player_name"]
+margin_left = 111.0
+margin_top = -120.0
+margin_right = 321.0
+margin_bottom = -40.0
+custom_fonts/font = SubResource( 2 )
+text = "NOMBRE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_age" type="LineEdit" parent="."]
+margin_left = 1000.0
+margin_top = 360.0
+margin_right = 1430.0
+margin_bottom = 450.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pl_age_lb" type="Label" parent="player_age"]
+margin_left = 111.0
+margin_top = -120.0
+margin_right = 321.0
+margin_bottom = -40.0
+custom_fonts/font = SubResource( 2 )
+text = "EDAD"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="player_nationality" type="LineEdit" parent="."]
+margin_left = 1000.0
+margin_top = 608.0
+margin_right = 1430.0
+margin_bottom = 698.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pl_nationality_lb" type="Label" parent="player_nationality"]
+margin_left = 8.0
+margin_top = -112.0
+margin_right = 428.0
+margin_bottom = -32.0
+custom_fonts/font = SubResource( 2 )
+text = "NACIONALIDAD"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_pp" type="Sprite" parent="."]
+position = Vector2( 328, 322 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="pp_player" type="Sprite" parent="back_pp"]
+position = Vector2( 0, 4 )
+scale = Vector2( 9, 9 )
+texture = ExtResource( 1 )
+
+[node name="bc_lb_pp" type="Sprite" parent="back_pp"]
+position = Vector2( 0, -384 )
+scale = Vector2( 10, 2 )
+texture = ExtResource( 5 )
+
+[node name="pp_lb" type="Label" parent="back_pp"]
+margin_left = -288.0
+margin_top = -436.0
+margin_right = 307.0
+margin_bottom = -356.0
+custom_fonts/font = SubResource( 3 )
+text = "FOTO DE IDENTIDAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 664.0
+margin_right = 1344.0
+margin_bottom = 790.0
+custom_fonts/font = SubResource( 4 )
+text = "departamento de policía de greyland city.
+
+acreditación número 1289384739."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="button_off_app_1" to="." method="_on_button_off_app_1_pressed"]

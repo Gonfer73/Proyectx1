@@ -1,0 +1,74 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://SPRITES/police_car_2-1.png" type="Texture" id=1]
+[ext_resource path="res://SPRITES/police_car_1-1.png" type="Texture" id=2]
+[ext_resource path="res://SCRIPTS/police_car.gd" type="Script" id=3]
+[ext_resource path="res://SPRITES/speedmeter_2.png" type="Texture" id=4]
+[ext_resource path="res://SPRITES/speedmeter_3.png" type="Texture" id=5]
+[ext_resource path="res://SPRITES/speedmeter_4.png" type="Texture" id=6]
+[ext_resource path="res://SPRITES/speedmeter_0.png" type="Texture" id=7]
+[ext_resource path="res://SPRITES/speedmeter_5.png" type="Texture" id=8]
+[ext_resource path="res://SPRITES/speedmeter_1.png" type="Texture" id=9]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=10]
+[ext_resource path="res://SPRITES/police_car_1-1_down.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "lights",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 40 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 72 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "speed",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 10 )
+
+[node name="police_car" type="KinematicBody2D"]
+position = Vector2( 464, 336 )
+script = ExtResource( 3 )
+
+[node name="spr_police_car" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "lights"
+
+[node name="coll_police_car_h" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="coll_police_car_v" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="car_camera" type="Camera2D" parent="."]
+position = Vector2( 336, 88 )
+current = true
+
+[node name="speedmeter" type="AnimatedSprite" parent="."]
+position = Vector2( 880, 248 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+animation = "speed"
+frame = 3
+
+[node name="speed" type="Label" parent="speedmeter"]
+margin_left = -176.0
+margin_top = 192.0
+margin_right = -136.0
+margin_bottom = 206.0
+rect_scale = Vector2( 12.156, 5.17932 )
+custom_fonts/font = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

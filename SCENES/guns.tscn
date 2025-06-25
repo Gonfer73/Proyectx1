@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SCENES/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SPRITES/back_light-blue-1.png.png" type="Texture" id=2]
+[ext_resource path="res://SPRITES/TILESETS/tileset_1.tres" type="TileSet" id=3]
+[ext_resource path="res://SCRIPTS/guns.gd" type="Script" id=4]
+[ext_resource path="res://SCENES/player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 37.8206, 30.9703 )
+
+[node name="guns" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="back_guns" type="Sprite" parent="."]
+position = Vector2( 781.303, 445.282 )
+scale = Vector2( 51.1912, 27.9264 )
+texture = ExtResource( 2 )
+
+[node name="tilemap_guns" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+format = 1
+tile_data = PoolIntArray( 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 524299, 0, 0, 589835, 0, 0, 655371, 0, 0, 720907, 0, 0, 786443, 0, 0, 851979, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 981.737, 235.889 )
+
+[node name="enemy" parent="." instance=ExtResource( 1 )]
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="check_bulltet" type="Area2D" parent="enemy"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="collision_check_bullet" type="CollisionShape2D" parent="enemy/check_bulltet"]
+position = Vector2( 2.2475, 2.99661 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="enemy/check_bulltet" to="enemy" method="_on_check_bulltet_body_entered"]

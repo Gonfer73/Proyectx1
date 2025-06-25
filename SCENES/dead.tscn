@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://SCRIPTS/dead.gd" type="Script" id=1]
+[ext_resource path="res://SPRITES/dead-1.png" type="Texture" id=2]
+[ext_resource path="res://SPRITES/enemy-1.png" type="Texture" id=3]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[node name="dead" type="Node2D"]
+position = Vector2( -176, 0 )
+script = ExtResource( 1 )
+
+[node name="back" type="Sprite" parent="."]
+position = Vector2( 880, 512 )
+scale = Vector2( 38.56, 23.08 )
+texture = ExtResource( 3 )
+
+[node name="dead_face" type="Sprite" parent="."]
+position = Vector2( 920, 496 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 176.0
+margin_top = 656.0
+margin_right = 492.0
+margin_bottom = 670.0
+rect_scale = Vector2( 5.04, 6 )
+custom_fonts/font = SubResource( 1 )
+text = "ESTÁS MUERTO. 
+PULSA ESCAPE PARA REAPARECER"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
