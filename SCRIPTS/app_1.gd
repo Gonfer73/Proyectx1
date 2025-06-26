@@ -49,7 +49,6 @@ func _ready():
 
 
 func _on_button_off_app_1_pressed():
-	print(App2.pl_name)
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://SCENES/computer.tscn")
 	
@@ -69,8 +68,8 @@ func _on_send_button_pressed():
 							if $input_l_7.text == str(l7):
 								if $input_l_8.text == str(l8):
 									if $input_l_9.text == str(l9):
-										Map.office_scr = Map.office_scr +1
-										$score.text = str(Map.office_scr)
+										Blink.office_scr = Blink.office_scr +1
+										$score.text = str(Blink.office_scr)
 										$send_button.text = "DATOS RECOPILADOS CORRECTAMENTE"
 										yield(get_tree().create_timer(1), "timeout") 
 # warning-ignore:return_value_discarded
