@@ -1,0 +1,125 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://SPRITES/space_icon.png" type="Texture" id=2]
+[ext_resource path="res://SPRITES/empty.png" type="Texture" id=3]
+[ext_resource path="res://SPRITES/npc_4.png" type="Texture" id=4]
+[ext_resource path="res://SCRIPTS/npc_4_talk.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.972549, 0.972549, 0.972549, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="npc_4_talk" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="npc_4_icon" type="Sprite" parent="."]
+position = Vector2( 1448, 688 )
+texture = ExtResource( 4 )
+
+[node name="text_npc_4_2" type="Label" parent="npc_4_icon"]
+margin_left = -1402.38
+margin_top = -186.524
+margin_right = -132.378
+margin_bottom = 154.476
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    
+	 Juro que no he matado a nadie. 
+	
+	 Ez una mancha de keztup.
+	"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_npc_4_1" type="Label" parent="npc_4_icon"]
+margin_left = -1402.38
+margin_top = -186.524
+margin_right = -132.378
+margin_bottom = 154.476
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    
+	  Mi tiempo ez oro, por ezo no dejo que me hagan perderlo.
+	
+	  A parte he llegado a loz 120 kiloz por eze reztaurante de chuchi.
+	
+	 Y la única forma de
+	 dezhacerme de elloz ez haciendo ejercicio todo el rato.
+	"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_npc_4_0" type="Label" parent="npc_4_icon"]
+margin_left = -1342.0
+margin_top = -91.0
+margin_right = -151.0
+margin_bottom = 95.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    
+	  Hola, ¿tú erez el nuevo?, encantado zoy Bobby. Ah, ah, ah. 
+	  Ahora no me hagaz perder tiempo.
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="space_bar_icon" type="AnimatedSprite" parent="npc_4_icon"]
+position = Vector2( -277.707, 51.5527 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+frame = 1
+
+[node name="ask_1" type="Button" parent="npc_4_icon"]
+margin_left = -1314.37
+margin_top = -301.606
+margin_right = -427.369
+margin_bottom = -215.606
+custom_fonts/font = SubResource( 4 )
+text = "       ¿Perder el tiempo?       "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ask_2" type="Button" parent="npc_4_icon"]
+margin_left = -1314.37
+margin_top = -400.025
+margin_right = -182.369
+margin_bottom = -314.025
+custom_fonts/font = SubResource( 5 )
+text = "¿Por qué tienes una mancha roja?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="npc_4_icon/ask_1" to="." method="_on_ask_1_pressed"]
+[connection signal="pressed" from="npc_4_icon/ask_2" to="." method="_on_ask_2_pressed"]

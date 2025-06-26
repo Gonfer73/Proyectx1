@@ -20,3 +20,8 @@ shape = SubResource( 1 )
 
 [node name="appear_bullet" type="Position2D" parent="."]
 position = Vector2( -72.3621, 0.943878 )
+
+[node name="wait_player" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="wait_player" to="." method="_on_wait_player_timeout"]

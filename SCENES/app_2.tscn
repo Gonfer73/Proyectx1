@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://SPRITES/player_1-1.png" type="Texture" id=1]
 [ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://SPRITES/turn_off_button-1.png" type="Texture" id=4]
 [ext_resource path="res://SPRITES/screen-1.png" type="Texture" id=5]
 [ext_resource path="res://SPRITES/back_computer-1.png" type="Texture" id=6]
+[ext_resource path="res://SPRITES/PDG_symbol.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -136,9 +137,9 @@ __meta__ = {
 }
 
 [node name="info" type="Label" parent="."]
-margin_left = 32.0
+margin_left = 16.0
 margin_top = 664.0
-margin_right = 1344.0
+margin_right = 753.0
 margin_bottom = 790.0
 custom_fonts/font = SubResource( 4 )
 text = "departamento de policía de greyland city.
@@ -147,5 +148,9 @@ acreditación número 1289384739."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PDG_symbol" type="Sprite" parent="."]
+position = Vector2( 784, 216 )
+texture = ExtResource( 7 )
 
 [connection signal="pressed" from="button_off_app_1" to="." method="_on_button_off_app_1_pressed"]

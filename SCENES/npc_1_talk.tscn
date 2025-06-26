@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://SCRIPTS/npc_3.gd" type="Script" id=2]
+[ext_resource path="res://SPRITES/space_icon.png" type="Texture" id=3]
+[ext_resource path="res://SPRITES/npc_1.png" type="Texture" id=4]
+[ext_resource path="res://SPRITES/empty.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.972549, 0.972549, 0.972549, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="npc_1_talk" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="npc_1_icon" type="Sprite" parent="."]
+position = Vector2( 1464, 688 )
+texture = ExtResource( 4 )
+
+[node name="text_npc_1" type="Label" parent="npc_1_icon"]
+margin_left = -1272.0
+margin_top = -120.0
+margin_right = -248.0
+margin_bottom = 136.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    
+	  Bienvenido al departamento yo soy Fred. Seré tu 
+	  compañero y estaré aquí para cualquier cosa. Ten en 
+	  cuenta que tienes papeleo que hacer y calles que 
+	  patrullar con tu coche, ¡así que corre!
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="space_bar_icon" type="AnimatedSprite" parent="npc_1_icon"]
+position = Vector2( -400, 96 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+frame = 1
