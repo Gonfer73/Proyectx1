@@ -10,3 +10,4 @@ A - Moving left
 E - Use car key
 Space bar - Shoot/Slow down
 Escape - Change scene
+I - Inventory
