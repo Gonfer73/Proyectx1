@@ -3,6 +3,31 @@ extends Node2D
 
 
 func _process(_delta):
+	if Input.is_action_pressed("action") and Blink.water:
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://SCENES/water_tower.tscn")
+	if Input.is_action_pressed("action") and Blink.npc_1:
+			$npcs/npc_1_talk.show()
+	if Input.is_action_pressed("action") and Blink.npc_2:
+			$npcs/npc_2_talk.show()
+	if Input.is_action_pressed("action") and Blink.npc_3:
+			$npcs/npc_3_talk.show()
+	if Input.is_action_pressed("action") and Blink.npc_4:
+		if Blink.talk == 2:
+			$npcs/npc_4_talk.show()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_0.hide()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_1.hide()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_2.hide()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_3.show()
+		elif Blink.talk == 1:
+			$npcs/npc_4_talk.show()
+		else:
+			$npcs/npc_4_talk.show()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_1.hide()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_2.hide()
+			$npcs/npc_4_talk/npc_4_icon/text_npc_4_3.hide()
+		
+		
 	Blink.position_n = $npcs/npc_4.position
 	Blink.position_p = $player.position
 	
@@ -10,15 +35,21 @@ func _input(_event):
 	if Input.is_action_pressed("ui_accept"):
 		if Blink.npc_1:
 			$npcs/npc_1_talk.hide()
+		elif Blink.npc_2:
+			$npcs/npc_2_talk.hide()
 		elif Blink.npc_4:
 			$npcs/npc_4.velocidad = 9999
 			$npcs/npc_4_talk.hide()
+		elif Blink.npc_3:
+			$npcs/npc_3_talk.hide()
 	elif Input.is_action_pressed("inventory"):
 		Blink.inventory_map = true
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://SCENES/inventory.tscn")
 
 func _ready():
+	$npcs/npc_2_talk.hide()
+	$npcs/npc_3_talk.hide()
 	$npcs/npc_4_talk.hide()
 	$npcs/npc_1_talk.hide()
 	if Blink.inventory_map:
@@ -44,13 +75,40 @@ func _ready():
 
 func _on_area_npc_1_body_entered(_body):
 	Blink.npc_1 = true
-	$npcs/npc_1_talk.show()
+	
 
 
 func _on_area_npc_4_body_entered(_body):
 	$npcs/npc_4.velocidad = 0
 	Blink.npc_4 = true
-	$npcs/npc_4_talk.show()
-	$npcs/npc_4_talk/npc_4_icon/text_npc_4_1.hide()
-	$npcs/npc_4_talk/npc_4_icon/text_npc_4_2.hide()
 	
+	
+
+
+# warning-ignore:unused_argument
+func _on_area_npc_1_body_exited(_body):
+	Blink.npc_1 = false
+
+
+func _on_area_npc_4_body_exited(_body):
+	Blink.npc_4 = false
+
+
+func _on_area_npc_3_body_entered(_body):
+	print("3")
+	Blink.npc_3 = true
+	
+
+
+
+func _on_area_npc_3_body_exited(_body):
+	Blink.npc_3 = false
+
+
+func _on_area_npc_2_body_entered(_body):
+	Blink.npc_2 = true
+	print("2")
+
+
+func _on_area_npc_2_body_exited(_body):
+	Blink.npc_2 = false

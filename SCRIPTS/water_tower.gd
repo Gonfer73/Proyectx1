@@ -10,5 +10,12 @@ func _input(_event):
 func _on_water_button_pressed():
 	Blink.water = true
 	Blink.cup = true
-# warning-ignore:return_value_discarded
+	$water_cup.play()
+	$cup_wait.start(1)
+
+	
+
+
+func _on_cup_wait_timeout():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://SCENES/map.tscn")

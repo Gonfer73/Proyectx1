@@ -105,6 +105,4 @@ func _on_wait_player_timeout():
 
 func _on_enter_water_body_entered(_body):
 	Blink.water = true
-	if area:
-# warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/water_tower.tscn")
+
