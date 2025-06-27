@@ -1,9 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SPRITES/screen-1.png" type="Texture" id=1]
 [ext_resource path="res://SCRIPTS/water_tower.gd" type="Script" id=2]
 [ext_resource path="res://SPRITES/water_tower.png" type="Texture" id=3]
 [ext_resource path="res://SPRITES/back_computer-1.png" type="Texture" id=4]
+[ext_resource path="res://SPRITES/empty.png" type="Texture" id=5]
+[ext_resource path="res://SPRITES/cup_4.png" type="Texture" id=6]
+[ext_resource path="res://SPRITES/cup_3.png" type="Texture" id=7]
+[ext_resource path="res://SPRITES/cup_2.png" type="Texture" id=8]
+[ext_resource path="res://SPRITES/cup_7.png" type="Texture" id=9]
+[ext_resource path="res://SPRITES/cup_0.png" type="Texture" id=10]
+[ext_resource path="res://SPRITES/cup_1.png" type="Texture" id=11]
+[ext_resource path="res://SPRITES/cup_5.png" type="Texture" id=12]
+[ext_resource path="res://SPRITES/cup_6.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
 
 [node name="water_tower" type="Node2D"]
 script = ExtResource( 2 )
@@ -31,4 +48,12 @@ position = Vector2( 776, 776 )
 scale = Vector2( 0.216169, 0.309592 )
 texture = ExtResource( 4 )
 
+[node name="cup_wait" type="Timer" parent="."]
+one_shot = true
+
+[node name="water_cup" type="AnimatedSprite" parent="."]
+position = Vector2( 776, 536 )
+frames = SubResource( 1 )
+
 [connection signal="pressed" from="water_button" to="." method="_on_water_button_pressed"]
+[connection signal="timeout" from="cup_wait" to="." method="_on_cup_wait_timeout"]

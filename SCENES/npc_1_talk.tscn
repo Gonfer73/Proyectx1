@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://SCRIPTS/npc_3.gd" type="Script" id=2]
 [ext_resource path="res://SPRITES/space_icon.png" type="Texture" id=3]
 [ext_resource path="res://SPRITES/npc_1.png" type="Texture" id=4]
 [ext_resource path="res://SPRITES/empty.png" type="Texture" id=5]
@@ -26,7 +25,6 @@ animations = [ {
 } ]
 
 [node name="npc_1_talk" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="npc_1_icon" type="Sprite" parent="."]
 position = Vector2( 1464, 688 )
@@ -55,3 +53,4 @@ position = Vector2( -400, 96 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 frame = 1
+playing = true

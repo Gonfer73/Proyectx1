@@ -40,6 +40,22 @@ script = ExtResource( 5 )
 position = Vector2( 1448, 688 )
 texture = ExtResource( 4 )
 
+[node name="text_npc_4_3" type="Label" parent="npc_4_icon"]
+margin_left = -1402.38
+margin_top = -186.524
+margin_right = -132.378
+margin_bottom = 154.476
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    
+       Está haciendo ejercicio.
+	
+	       Mejor le dejo."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="text_npc_4_2" type="Label" parent="npc_4_icon"]
 margin_left = -1402.38
 margin_top = -186.524
@@ -49,9 +65,9 @@ custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "    
-	 Juro que no he matado a nadie. 
+	  Juro que no he matado a nadie. 
 	
-	 Ez una mancha de keztup.
+	  Ez una mancha de keztup.
 	"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,8 +86,8 @@ text = "
 	
 	  A parte he llegado a loz 120 kiloz por eze reztaurante de chuchi.
 	
-	 Y la única forma de
-	 dezhacerme de elloz ez haciendo ejercicio todo el rato.
+	  Y la única forma de
+	  dezhacerme de elloz ez haciendo ejercicio todo el rato.
 	"
 __meta__ = {
 "_edit_use_anchors_": false

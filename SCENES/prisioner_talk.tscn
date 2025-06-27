@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SPRITES/space_icon.png" type="Texture" id=1]
+[ext_resource path="res://SPRITES/empty.png" type="Texture" id=2]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://SCRIPTS/prisioner_talk.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="prisioner_talk" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="prisioner_talk_label" type="Label" parent="."]
+visible = false
+margin_left = 384.0
+margin_top = 632.0
+margin_right = 1208.0
+margin_bottom = 792.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "   Oye ya que veo que quieres hablar conmigo,
+   me podrías traer un cuchillo, te pagaré 
+   bien por ello"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon_space_bar" type="AnimatedSprite" parent="prisioner_talk_label"]
+position = Vector2( 672, 120 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="accept_button" type="Button" parent="prisioner_talk_label"]
+margin_left = 192.0
+margin_top = -144.0
+margin_right = 563.0
+margin_bottom = -98.0
+custom_fonts/font = SubResource( 4 )
+text = "Claro, aquí lo tengo"
+
+[node name="dennie_button" type="Button" parent="prisioner_talk_label"]
+margin_left = 192.0
+margin_top = -72.0
+margin_right = 563.0
+margin_bottom = -26.0
+custom_fonts/font = SubResource( 4 )
+text = "Sí, voy a por él"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="prisioner_talk_label2" type="Label" parent="."]
+visible = false
+margin_left = 384.0
+margin_top = 656.0
+margin_right = 1193.0
+margin_bottom = 768.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    Gracias. Ah y toma tu dinero, 100 
+	    monedas"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon_space_bar" type="AnimatedSprite" parent="prisioner_talk_label2"]
+position = Vector2( 680, 72 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="prisioner_talk_label3" type="Label" parent="."]
+visible = false
+margin_left = 384.0
+margin_top = 656.0
+margin_right = 1193.0
+margin_bottom = 768.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "    Mentiroso, ve a por mi cuchillo o no
+	    te dare las monedas"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon_space_bar" type="AnimatedSprite" parent="prisioner_talk_label3"]
+position = Vector2( 680, 72 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+playing = true
+
+[connection signal="pressed" from="prisioner_talk_label/accept_button" to="." method="_on_accept_button_pressed"]
+[connection signal="pressed" from="prisioner_talk_label/dennie_button" to="." method="_on_dennie_button_pressed"]

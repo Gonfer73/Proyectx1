@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://SPRITES/tilemap_1-1.png.png" type="Texture" id=1]
 [ext_resource path="res://SPRITES/bars_prision.png" type="Texture" id=2]
 [ext_resource path="res://SCENES/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SCRIPTS/prision.gd" type="Script" id=4]
+[ext_resource path="res://SPRITES/enemy-1.png" type="Texture" id=5]
+[ext_resource path="res://SCENES/prisioner_talk.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -85,6 +87,9 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16, 160 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 72, 72 )
+
 [node name="prision" type="Node2D"]
 script = ExtResource( 4 )
 
@@ -104,8 +109,8 @@ tile_data = PoolIntArray( 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1440, 96 )
-collision_layer = 3
-collision_mask = 3
+collision_layer = 1027
+collision_mask = 1027
 
 [node name="exit_bars" type="Area2D" parent="."]
 
@@ -113,4 +118,34 @@ collision_mask = 3
 position = Vector2( 1600, 160 )
 shape = SubResource( 7 )
 
+[node name="prisioners" type="Node2D" parent="."]
+
+[node name="prisioner_1" type="Sprite" parent="prisioners"]
+position = Vector2( 152, 432 )
+texture = ExtResource( 5 )
+
+[node name="talk_prisioner" type="Area2D" parent="prisioners/prisioner_1"]
+collision_layer = 1024
+collision_mask = 1024
+
+[node name="coll_talk_prisioner" type="CollisionShape2D" parent="prisioners/prisioner_1/talk_prisioner"]
+position = Vector2( 16, -120 )
+shape = SubResource( 8 )
+
+[node name="prisioner_talk" parent="prisioners/prisioner_1" instance=ExtResource( 6 )]
+position = Vector2( -504, -440 )
+
+[node name="prisioner_2" type="Sprite" parent="prisioners"]
+position = Vector2( 680, 504 )
+texture = ExtResource( 5 )
+
+[node name="prisioner_3" type="Sprite" parent="prisioners"]
+position = Vector2( 968, 464 )
+texture = ExtResource( 5 )
+
+[node name="prisioner_4" type="Sprite" parent="prisioners"]
+position = Vector2( 1224, 480 )
+texture = ExtResource( 5 )
+
 [connection signal="body_entered" from="exit_bars" to="player" method="_on_exit_bars_body_entered"]
+[connection signal="body_entered" from="prisioners/prisioner_1/talk_prisioner" to="." method="_on_talk_prisioner_body_entered"]
