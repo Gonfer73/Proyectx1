@@ -13,19 +13,19 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 38, 40 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 24, 40 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 40, 40 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 33.6254, 32.5178 )
 
-[sub_resource type="GDScript" id=4]
+[sub_resource type="GDScript" id=6]
 script/source = "extends CollisionShape2D
 
 
@@ -44,19 +44,19 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 37.7525, 48 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 188.975, 136.076 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 33.3023, 64.3054 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 32, 96 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 40, 40 )
 
 [node name="map" type="Node2D"]
@@ -93,7 +93,7 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="coll_area_npc_2" type="CollisionShape2D" parent="npcs/npc_2/area_npc_2"]
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 
 [node name="npc_1" type="RigidBody2D" parent="npcs"]
 position = Vector2( 878, 504 )
@@ -114,7 +114,7 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="coll_area_npc_1" type="CollisionShape2D" parent="npcs/npc_1/area_npc_1"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="npc_3" type="RigidBody2D" parent="npcs"]
 position = Vector2( 680, 440 )
@@ -135,7 +135,7 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="coll_area_npc_3" type="CollisionShape2D" parent="npcs/npc_3/area_npc_3"]
-shape = SubResource( 10 )
+shape = SubResource( 4 )
 
 [node name="npc_4" type="KinematicBody2D" parent="npcs"]
 position = Vector2( 544, 422.502 )
@@ -147,8 +147,8 @@ texture = ExtResource( 3 )
 
 [node name="npc_4_collision" type="CollisionShape2D" parent="npcs/npc_4"]
 position = Vector2( 2.2475, -1.49835 )
-shape = SubResource( 3 )
-script = SubResource( 4 )
+shape = SubResource( 5 )
+script = SubResource( 6 )
 
 [node name="area_npc_4" type="Area2D" parent="npcs/npc_4"]
 collision_layer = 1024
@@ -156,7 +156,7 @@ collision_mask = 1024
 
 [node name="coll_area_npc_4" type="CollisionShape2D" parent="npcs/npc_4/area_npc_4"]
 position = Vector2( 2.2475, 1.49799 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="npc_1_talk" parent="npcs" instance=ExtResource( 6 )]
 
@@ -172,21 +172,21 @@ shape = SubResource( 5 )
 
 [node name="collision_corridor" type="CollisionShape2D" parent="portals/enter_corridor"]
 position = Vector2( -176.202, 136.516 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="enter_computer" type="Area2D" parent="portals"]
 position = Vector2( 155.565, 533.367 )
 
 [node name="collision_computer" type="CollisionShape2D" parent="portals/enter_computer"]
 position = Vector2( 3.82243, 2.21466 )
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="enter_out" type="Area2D" parent="portals"]
 position = Vector2( 1588, 148 )
 
 [node name="collision_out" type="CollisionShape2D" parent="portals/enter_out"]
 position = Vector2( 44, 12 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="enter_water" type="Area2D" parent="portals"]
 position = Vector2( 384, 536 )
@@ -195,7 +195,7 @@ collision_mask = 1024
 
 [node name="coll_enter_water" type="CollisionShape2D" parent="portals/enter_water"]
 position = Vector2( -32, 8 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [connection signal="body_entered" from="npcs/npc_2/area_npc_2" to="." method="_on_area_npc_2_body_entered"]
 [connection signal="body_exited" from="npcs/npc_2/area_npc_2" to="." method="_on_area_npc_2_body_exited"]
@@ -209,3 +209,4 @@ shape = SubResource( 9 )
 [connection signal="body_entered" from="portals/enter_computer" to="player" method="_on_enter_computer_body_entered"]
 [connection signal="body_entered" from="portals/enter_out" to="player" method="_on_enter_out_body_entered"]
 [connection signal="body_entered" from="portals/enter_water" to="player" method="_on_enter_water_body_entered"]
+[connection signal="body_exited" from="portals/enter_water" to="." method="_on_enter_water_body_exited"]
