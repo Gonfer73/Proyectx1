@@ -37,3 +37,6 @@ func _on_wait_timeout():
 	elif Blink.bars == true:
 		$player.position = Vector2(117, 105)
 		Blink.bars = false
+	elif Blink.private:
+		$player.position = Vector2(803, 88)
+		Blink.private = false

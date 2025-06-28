@@ -106,3 +106,24 @@ func _on_wait_player_timeout():
 func _on_enter_water_body_entered(_body):
 	Blink.water = true
 
+
+
+func _on_enter_private_body_entered(_body):
+	if area:
+		Blink.private = true
+# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://SCENES/private.tscn")
+
+
+func _on_exit_private_body_entered(_body):
+	if area:
+# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://SCENES/corridor.tscn")
+
+
+func _on_get_knife_body_entered(_body):
+	Blink.get_knife = true
+
+
+func _on_get_knife_body_exited(_body):
+	Blink.get_knife = true

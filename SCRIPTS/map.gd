@@ -13,6 +13,7 @@ func _process(_delta):
 	if Input.is_action_pressed("action") and Blink.npc_3:
 			$npcs/npc_3_talk.show()
 	if Input.is_action_pressed("action") and Blink.npc_4:
+		$npcs/npc_4.velocidad = 0
 		if Blink.talk == 2:
 			$npcs/npc_4_talk.show()
 			$npcs/npc_4_talk/npc_4_icon/text_npc_4_0.hide()
@@ -79,7 +80,6 @@ func _on_area_npc_1_body_entered(_body):
 
 
 func _on_area_npc_4_body_entered(_body):
-	$npcs/npc_4.velocidad = 0
 	Blink.npc_4 = true
 	
 	
@@ -95,7 +95,6 @@ func _on_area_npc_4_body_exited(_body):
 
 
 func _on_area_npc_3_body_entered(_body):
-	print("3")
 	Blink.npc_3 = true
 	
 
@@ -112,3 +111,7 @@ func _on_area_npc_2_body_entered(_body):
 
 func _on_area_npc_2_body_exited(_body):
 	Blink.npc_2 = false
+
+
+func _on_enter_water_body_exited(body):
+	Blink.water = false
