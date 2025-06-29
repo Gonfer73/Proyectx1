@@ -127,3 +127,8 @@ func _on_get_knife_body_entered(_body):
 
 func _on_get_knife_body_exited(_body):
 	Blink.get_knife = true
+
+
+func _on_check_bulltet_body_entered(_body):
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/dead.tscn")

@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
-var punto_a = Vector2(500,30)
-var punto_b = Vector2(500,820)
-var punto_inicio = Vector2(500, 425)
-var velocidad = 20000
+var punto_a = Vector2(148,36)
+var punto_b = Vector2(148,781)
+var punto_inicio = Vector2(148, 303)
+var velocidad = 40000
 var destino := Vector2()
 var direccion := Vector2()
 
@@ -34,5 +34,5 @@ func _physics_process(delta):
 
 func _on_check_bulltet_body_entered(_body):
 	hide()
-	$wait_enemy.start(5)
+	$wait_enemy_2.start(5)
 	show()
