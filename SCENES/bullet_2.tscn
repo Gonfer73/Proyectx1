@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SPRITES/back_computer-1.png" type="Texture" id=1]
+[ext_resource path="res://SCRIPTS/bullet_2.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.49292, 0.0811768 )
+
+[node name="bullet_2" type="KinematicBody2D"]
+position = Vector2( 1514.4, 341.801 )
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource( 2 )
+
+[node name="coll_bullet_2" type="CollisionShape2D" parent="."]
+position = Vector2( -32.2973, -5.67929 )
+shape = SubResource( 1 )
+
+[node name="spr_bullet_2" type="Sprite" parent="."]
+position = Vector2( 3.34375, -3.50067 )
+scale = Vector2( 0.0527344, 0.0175781 )
+texture = ExtResource( 1 )

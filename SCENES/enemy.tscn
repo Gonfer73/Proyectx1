@@ -17,3 +17,6 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 3.25259, 6.07724 )
 texture = ExtResource( 1 )
+
+[node name="wait_enemy" type="Timer" parent="."]
+one_shot = true

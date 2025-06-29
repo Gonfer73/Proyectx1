@@ -4,7 +4,7 @@
 [ext_resource path="res://SPRITES/back_computer-1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3.74884, 7.16885 )
+extents = Vector2( 0.0226135, 8.27817 )
 
 [node name="bullet" type="KinematicBody2D"]
 position = Vector2( 466.046, 399.056 )

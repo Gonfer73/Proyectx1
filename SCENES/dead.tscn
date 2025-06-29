@@ -18,14 +18,15 @@ scale = Vector2( 38.56, 23.08 )
 texture = ExtResource( 3 )
 
 [node name="dead_face" type="Sprite" parent="."]
-position = Vector2( 920, 496 )
+position = Vector2( 1000, 472 )
+scale = Vector2( 0.9893, 0.981517 )
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 176.0
-margin_top = 656.0
-margin_right = 492.0
-margin_bottom = 670.0
+margin_left = 184.0
+margin_top = 568.0
+margin_right = 500.0
+margin_bottom = 615.0
 rect_scale = Vector2( 5.04, 6 )
 custom_fonts/font = SubResource( 1 )
 text = "ESTÁS MUERTO. 

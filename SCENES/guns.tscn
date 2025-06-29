@@ -1,29 +1,45 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://SCENES/enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SPRITES/back_light-blue-1.png.png" type="Texture" id=2]
 [ext_resource path="res://SPRITES/TILESETS/tileset_1.tres" type="TileSet" id=3]
 [ext_resource path="res://SCRIPTS/guns.gd" type="Script" id=4]
 [ext_resource path="res://SCENES/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SCRIPTS/enemy_2.gd" type="Script" id=6]
+[ext_resource path="res://SCRIPTS/shoot_1.gd" type="Script" id=7]
+[ext_resource path="res://SCRIPTS/shoot_4.gd" type="Script" id=8]
+[ext_resource path="res://SCRIPTS/shoot_2.gd" type="Script" id=9]
+[ext_resource path="res://SCRIPTS/shoot_3.gd" type="Script" id=10]
+[ext_resource path="res://SCENES/bullet_2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SCRIPTS/shoot_5.gd" type="Script" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 37.8206, 30.9703 )
+extents = Vector2( 63.4714, 58.7901 )
 
 [node name="guns" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="back_guns" type="Sprite" parent="."]
-position = Vector2( 781.303, 445.282 )
-scale = Vector2( 51.1912, 27.9264 )
+position = Vector2( 770.081, 445.282 )
+scale = Vector2( 53.1577, 27.9264 )
 texture = ExtResource( 2 )
 
 [node name="tilemap_guns" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
 format = 1
-tile_data = PoolIntArray( 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 524299, 0, 0, 589835, 0, 0, 655371, 0, 0, 720907, 0, 0, 786443, 0, 0, 851979, 0, 0 )
+tile_data = PoolIntArray( -2, 0, 2, -1, 0, 2, -65536, 0, 2, -65535, 0, 2, -65534, 0, 2, -65533, 0, 2, -65532, 0, 2, -65531, 0, 2, -65530, 0, 2, -65529, 0, 2, -65528, 0, 2, -65527, 0, 2, -65526, 0, 2, -65525, 0, 2, -65524, 0, 2, -65523, 0, 2, -65522, 0, 2, -65521, 0, 2, -65520, 0, 2, -65519, 0, 2, -65518, 0, 2, -65517, 0, 2, -65516, 0, 2, -65515, 0, 2, -65514, 0, 2, -65513, 0, 2, -65512, 0, 2, -65511, 0, 2, 65534, 0, 2, 11, 0, 0, 25, 0, 2, 131070, 0, 2, 65547, 0, 0, 65561, 0, 2, 196606, 0, 2, 131083, 0, 0, 131097, 0, 2, 262142, 0, 2, 196619, 0, 0, 196633, 0, 2, 327678, 0, 2, 262155, 0, 0, 262169, 0, 2, 393214, 0, 2, 327691, 0, 0, 327705, 0, 2, 458750, 0, 2, 393227, 0, 0, 393241, 0, 2, 524286, 0, 2, 458763, 0, 0, 458777, 0, 2, 589822, 0, 2, 524299, 0, 0, 524313, 0, 2, 655358, 0, 2, 589835, 0, 0, 589849, 0, 2, 720894, 0, 2, 655371, 0, 0, 655385, 0, 2, 786430, 0, 2, 720907, 0, 0, 720921, 0, 2, 851966, 0, 2, 786443, 0, 0, 786457, 0, 2, 917502, 0, 2, 851979, 0, 0, 851993, 0, 2, 983038, 0, 2, 983039, 0, 2, 917504, 0, 2, 917505, 0, 2, 917506, 0, 2, 917507, 0, 2, 917508, 0, 2, 917509, 0, 2, 917510, 0, 2, 917511, 0, 2, 917512, 0, 2, 917513, 0, 2, 917514, 0, 2, 917515, 0, 2, 917516, 0, 2, 917517, 0, 2, 917518, 0, 2, 917519, 0, 2, 917520, 0, 2, 917521, 0, 2, 917522, 0, 2, 917523, 0, 2, 917524, 0, 2, 917525, 0, 2, 917526, 0, 2, 917527, 0, 2, 917528, 0, 2, 917529, 0, 2 )
 
 [node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 981.737, 235.889 )
+position = Vector2( 988.094, 394.809 )
+
+[node name="check_bulltet" type="Area2D" parent="player"]
+position = Vector2( 1.422, 0.0847931 )
+collision_layer = 262144
+collision_mask = 262144
+
+[node name="collision_check_bullet" type="CollisionShape2D" parent="player/check_bulltet"]
+position = Vector2( 2.2475, 2.99661 )
+shape = SubResource( 1 )
 
 [node name="enemy" parent="." instance=ExtResource( 1 )]
 collision_layer = 1024
@@ -37,4 +53,79 @@ collision_mask = 2
 position = Vector2( 2.2475, 2.99661 )
 shape = SubResource( 1 )
 
+[node name="enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 148.33, 783.477 )
+collision_layer = 1024
+collision_mask = 1024
+script = ExtResource( 6 )
+
+[node name="check_bulltet" type="Area2D" parent="enemy2"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="collision_check_bullet" type="CollisionShape2D" parent="enemy2/check_bulltet"]
+position = Vector2( 2.2475, 2.99661 )
+shape = SubResource( 1 )
+
+[node name="wait_enemy_2" type="Timer" parent="enemy2"]
+one_shot = true
+
+[node name="shoot_1" type="Node2D" parent="."]
+position = Vector2( 1598.6, 207.224 )
+script = ExtResource( 7 )
+bullet_scene = ExtResource( 11 )
+
+[node name="appear_bullet_2" type="Position2D" parent="shoot_1"]
+
+[node name="timer_shoot" type="Timer" parent="shoot_1"]
+one_shot = true
+
+[node name="shoot_2" type="Node2D" parent="."]
+position = Vector2( 1602.84, 567.442 )
+script = ExtResource( 9 )
+bullet_scene = ExtResource( 11 )
+
+[node name="appear_bullet_2" type="Position2D" parent="shoot_2"]
+
+[node name="timer_shoot" type="Timer" parent="shoot_2"]
+one_shot = true
+
+[node name="shoot_3" type="Node2D" parent="."]
+position = Vector2( 1600.72, 353.43 )
+script = ExtResource( 10 )
+bullet_scene = ExtResource( 11 )
+
+[node name="appear_bullet_2" type="Position2D" parent="shoot_3"]
+
+[node name="timer_shoot" type="Timer" parent="shoot_3"]
+one_shot = true
+
+[node name="shoot_4" type="Node2D" parent="."]
+position = Vector2( 1609.2, 804.762 )
+script = ExtResource( 8 )
+bullet_scene = ExtResource( 11 )
+
+[node name="appear_bullet_2" type="Position2D" parent="shoot_4"]
+
+[node name="timer_shoot" type="Timer" parent="shoot_4"]
+one_shot = true
+
+[node name="shoot_5" type="Node2D" parent="."]
+position = Vector2( 1602.84, 82.2078 )
+script = ExtResource( 12 )
+bullet_scene = ExtResource( 11 )
+
+[node name="appear_bullet_2" type="Position2D" parent="shoot_5"]
+
+[node name="timer_shoot" type="Timer" parent="shoot_5"]
+one_shot = true
+
+[connection signal="body_entered" from="player/check_bulltet" to="." method="_on_check_bulltet_body_entered"]
+[connection signal="body_entered" from="player/check_bulltet" to="player" method="_on_check_bulltet_body_entered"]
 [connection signal="body_entered" from="enemy/check_bulltet" to="enemy" method="_on_check_bulltet_body_entered"]
+[connection signal="body_entered" from="enemy2/check_bulltet" to="enemy2" method="_on_check_bulltet_body_entered"]
+[connection signal="timeout" from="shoot_1/timer_shoot" to="shoot_1" method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="shoot_2/timer_shoot" to="shoot_2" method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="shoot_3/timer_shoot" to="shoot_3" method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="shoot_4/timer_shoot" to="shoot_4" method="_on_timer_shoot_timeout"]
+[connection signal="timeout" from="shoot_5/timer_shoot" to="shoot_5" method="_on_timer_shoot_timeout"]
