@@ -14,7 +14,13 @@ var get_knife = false
 var with_knife = false
 var prisioner = false
 var bullet_player = false
-var tap = false
+var cooker_state = "OFF"
+var cooker: bool
+var cooker_frame = 0
+var fridge = false
+var fridge_interior = false
+var tap_state = "OFF"
+var tap: bool
 var tap_frame = 0
 var npc_1 = false
 var npc_2 = false
@@ -28,6 +34,8 @@ var pl_nationality: String
 var pl_age: int
 var pl_nm: String
 var out = false
+var shooting = true
+var shoot = false
 var guns = false
 var corridor = false
 var button = false

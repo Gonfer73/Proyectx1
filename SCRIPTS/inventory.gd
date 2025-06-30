@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _input(_event):
+	print(Blink.bars)
 	if Input.is_action_pressed("inventory"):
 		if Blink.inventory_cor:
 # warning-ignore:return_value_discarded

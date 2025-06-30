@@ -24,7 +24,7 @@ func _input(_event):
 func _on_enter_guns_body_entered(_body):
 	if area:
 		Blink.guns = true
-		Guns.shoot = true
+		Blink.shoot = true
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://SCENES/guns.tscn")
 

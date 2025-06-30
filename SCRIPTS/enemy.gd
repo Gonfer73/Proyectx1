@@ -33,6 +33,7 @@ func _physics_process(delta):
 
 
 func _on_check_bulltet_body_entered(_body):
+	print("Hello world")
 	hide()
 	$wait_enemy.start(5)
 	show()

@@ -8,11 +8,15 @@ func _process(_delta):
 			get_tree().change_scene("res://SCENES/water_tower.tscn")
 	if Input.is_action_pressed("action") and Blink.npc_1:
 			$npcs/npc_1_talk.show()
+			$E_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_2:
 			$npcs/npc_2_talk.show()
+			$E_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_3:
 			$npcs/npc_3_talk.show()
+			$E_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_4:
+		$E_icon.hide()
 		$npcs/npc_4.velocidad = 0
 		if Blink.talk == 2:
 			$npcs/npc_4_talk.show()
@@ -36,13 +40,17 @@ func _input(_event):
 	if Input.is_action_pressed("ui_accept"):
 		if Blink.npc_1:
 			$npcs/npc_1_talk.hide()
+			$E_icon.show()
 		elif Blink.npc_2:
 			$npcs/npc_2_talk.hide()
+			$E_icon.show()
 		elif Blink.npc_4:
 			$npcs/npc_4.velocidad = 9999
 			$npcs/npc_4_talk.hide()
+			$E_icon.show()
 		elif Blink.npc_3:
 			$npcs/npc_3_talk.hide()
+			$E_icon.show()
 	elif Input.is_action_pressed("inventory"):
 		Blink.inventory_map = true
 # warning-ignore:return_value_discarded
@@ -76,11 +84,15 @@ func _ready():
 
 func _on_area_npc_1_body_entered(_body):
 	Blink.npc_1 = true
+	$E_icon.show()
+	$E_icon.play()
 	
 
 
 func _on_area_npc_4_body_entered(_body):
 	Blink.npc_4 = true
+	$E_icon.show()
+	$E_icon.frame = 0
 	
 	
 
@@ -88,30 +100,43 @@ func _on_area_npc_4_body_entered(_body):
 # warning-ignore:unused_argument
 func _on_area_npc_1_body_exited(_body):
 	Blink.npc_1 = false
+	$E_icon.hide()
 
 
 func _on_area_npc_4_body_exited(_body):
 	Blink.npc_4 = false
+	$E_icon.hide()
 
 
 func _on_area_npc_3_body_entered(_body):
 	Blink.npc_3 = true
+	$E_icon.show()
+	$E_icon.play()
 	
 
 
 
 func _on_area_npc_3_body_exited(_body):
 	Blink.npc_3 = false
+	$E_icon.hide()
 
 
 func _on_area_npc_2_body_entered(_body):
 	Blink.npc_2 = true
-	print("2")
+	$E_icon.show()
+	$E_icon.play()
 
 
 func _on_area_npc_2_body_exited(_body):
 	Blink.npc_2 = false
-
+	$E_icon.hide()
 
 func _on_enter_water_body_exited(body):
 	Blink.water = false
+	$E_icon.hide()
+
+
+func _on_enter_water_body_entered(_body):
+	Blink.water= true
+	$E_icon.show()
+	$E_icon.play()

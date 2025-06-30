@@ -31,8 +31,3 @@ func _physics_process(delta):
 
 
 
-
-func _on_check_bulltet_body_entered(_body):
-	hide()
-	$wait_enemy_2.start(5)
-	show()

@@ -8,6 +8,6 @@ func _ready():
 
 func _process(_delta):
 	if area:
-		if Input.is_action_pressed("escape"):
+		if Input.is_action_pressed("action"):
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://SCENES/map.tscn")
