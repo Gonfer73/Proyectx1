@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://SPRITES/TILESETS/tileset_1.tres" type="TileSet" id=1]
 [ext_resource path="res://SCENES/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://SCENES/npc_4_talk.tscn" type="PackedScene" id=7]
 [ext_resource path="res://SCENES/npc_3_talk.tscn" type="PackedScene" id=8]
 [ext_resource path="res://SCENES/npc_2_talk.tscn" type="PackedScene" id=9]
+[ext_resource path="res://SPRITES/icon_e.png" type="Texture" id=10]
+[ext_resource path="res://SPRITES/empty.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -58,6 +60,14 @@ extents = Vector2( 32, 96 )
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 40, 40 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
 
 [node name="map" type="Node2D"]
 script = ExtResource( 4 )
@@ -197,6 +207,12 @@ collision_mask = 1024
 position = Vector2( -32, 8 )
 shape = SubResource( 11 )
 
+[node name="E_icon" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 1536, 768 )
+frames = SubResource( 12 )
+frame = 1
+
 [connection signal="body_entered" from="npcs/npc_2/area_npc_2" to="." method="_on_area_npc_2_body_entered"]
 [connection signal="body_exited" from="npcs/npc_2/area_npc_2" to="." method="_on_area_npc_2_body_exited"]
 [connection signal="body_entered" from="npcs/npc_1/area_npc_1" to="." method="_on_area_npc_1_body_entered"]
@@ -208,5 +224,5 @@ shape = SubResource( 11 )
 [connection signal="body_entered" from="portals/enter_corridor" to="player" method="_on_enter_corridor_body_entered"]
 [connection signal="body_entered" from="portals/enter_computer" to="player" method="_on_enter_computer_body_entered"]
 [connection signal="body_entered" from="portals/enter_out" to="player" method="_on_enter_out_body_entered"]
-[connection signal="body_entered" from="portals/enter_water" to="player" method="_on_enter_water_body_entered"]
+[connection signal="body_entered" from="portals/enter_water" to="." method="_on_enter_water_body_entered"]
 [connection signal="body_exited" from="portals/enter_water" to="." method="_on_enter_water_body_exited"]

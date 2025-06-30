@@ -24,4 +24,7 @@ position = Vector2( -72.3621, 0.943878 )
 [node name="wait_player" type="Timer" parent="."]
 one_shot = true
 
+[node name="wait_bullet" type="Timer" parent="."]
+
 [connection signal="timeout" from="wait_player" to="." method="_on_wait_player_timeout"]
+[connection signal="timeout" from="wait_bullet" to="." method="_on_wait_bullet_timeout"]

@@ -32,12 +32,12 @@ tile_data = PoolIntArray( -2, 0, 2, -1, 0, 2, -65536, 0, 2, -65535, 0, 2, -65534
 [node name="player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 988.094, 394.809 )
 
-[node name="check_bulltet" type="Area2D" parent="player"]
+[node name="check_bulltet_p" type="Area2D" parent="player"]
 position = Vector2( 1.422, 0.0847931 )
 collision_layer = 262144
 collision_mask = 262144
 
-[node name="collision_check_bullet" type="CollisionShape2D" parent="player/check_bulltet"]
+[node name="collision_check_bullet" type="CollisionShape2D" parent="player/check_bulltet_p"]
 position = Vector2( 2.2475, 2.99661 )
 shape = SubResource( 1 )
 
@@ -45,11 +45,11 @@ shape = SubResource( 1 )
 collision_layer = 1024
 collision_mask = 1024
 
-[node name="check_bulltet" type="Area2D" parent="enemy"]
-collision_layer = 2
-collision_mask = 2
+[node name="check_bulltet_1" type="Area2D" parent="enemy"]
+collision_layer = 1024
+collision_mask = 1024
 
-[node name="collision_check_bullet" type="CollisionShape2D" parent="enemy/check_bulltet"]
+[node name="collision_check_bullet" type="CollisionShape2D" parent="enemy/check_bulltet_1"]
 position = Vector2( 2.2475, 2.99661 )
 shape = SubResource( 1 )
 
@@ -60,8 +60,8 @@ collision_mask = 1024
 script = ExtResource( 6 )
 
 [node name="check_bulltet" type="Area2D" parent="enemy2"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 1024
+collision_mask = 1024
 
 [node name="collision_check_bullet" type="CollisionShape2D" parent="enemy2/check_bulltet"]
 position = Vector2( 2.2475, 2.99661 )
@@ -120,10 +120,10 @@ bullet_scene = ExtResource( 11 )
 [node name="timer_shoot" type="Timer" parent="shoot_5"]
 one_shot = true
 
-[connection signal="body_entered" from="player/check_bulltet" to="." method="_on_check_bulltet_body_entered"]
-[connection signal="body_entered" from="player/check_bulltet" to="player" method="_on_check_bulltet_body_entered"]
-[connection signal="body_entered" from="enemy/check_bulltet" to="enemy" method="_on_check_bulltet_body_entered"]
-[connection signal="body_entered" from="enemy2/check_bulltet" to="enemy2" method="_on_check_bulltet_body_entered"]
+[connection signal="body_entered" from="player/check_bulltet_p" to="player" method="_on_check_bulltet_body_entered"]
+[connection signal="body_entered" from="player/check_bulltet_p" to="." method="_on_check_bulltet_p_body_entered"]
+[connection signal="body_entered" from="enemy/check_bulltet_1" to="." method="_on_check_bulltet_1_body_entered"]
+[connection signal="body_entered" from="enemy2/check_bulltet" to="." method="_on_check_bulltet_body_entered"]
 [connection signal="timeout" from="shoot_1/timer_shoot" to="shoot_1" method="_on_timer_shoot_timeout"]
 [connection signal="timeout" from="shoot_2/timer_shoot" to="shoot_2" method="_on_timer_shoot_timeout"]
 [connection signal="timeout" from="shoot_3/timer_shoot" to="shoot_3" method="_on_timer_shoot_timeout"]
