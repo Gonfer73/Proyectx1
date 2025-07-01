@@ -11,6 +11,8 @@ func _ready():
 
 func _input(_event):
 	if Input.is_action_pressed("action"):
+		$icon_e.hide()
+		$icon_d.show()
 		key = true
 		$lock.frame = 1
 	elif Input.is_action_pressed("rotate_key") and key:
@@ -26,4 +28,4 @@ func _input(_event):
 
 
 func _on_wait_timeout():
-	get_tree().change_scene("res://SCENES/car_street.tscn")
+	get_tree().change_scene("res://SCENES/instructions_car.tscn")
