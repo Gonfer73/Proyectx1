@@ -2,6 +2,7 @@ extends Node2D
 
 
 
+
 func _process(_delta):
 	if Input.is_action_pressed("action") and Blink.water:
 # warning-ignore:return_value_discarded
