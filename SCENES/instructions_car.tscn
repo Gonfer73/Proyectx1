@@ -98,7 +98,6 @@ texture = ExtResource( 3 )
 [node name="finger_pointing" type="Sprite" parent="shift_icon"]
 position = Vector2( -1004.06, 55.2854 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 offset = Vector2( -1015.49, 295.281 )
 
@@ -118,7 +117,6 @@ texture = ExtResource( 10 )
 [node name="finger_pointing_2" type="Sprite" parent="space_icon_2"]
 position = Vector2( -994.286, 91.4283 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 offset = Vector2( -1015.49, 295.281 )
 
@@ -158,7 +156,6 @@ frames = SubResource( 7 )
 position = Vector2( 736, 752 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 8 )
-playing = true
 
 [connection signal="timeout" from="shift_icon/wait_1" to="." method="_on_wait_1_timeout"]
 [connection signal="timeout" from="space_icon_2/wait_2" to="." method="_on_wait_2_timeout"]
