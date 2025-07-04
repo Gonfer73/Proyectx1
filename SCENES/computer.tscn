@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://SPRITES/TILESETS/tileset_2.tres" type="TileSet" id=1]
 [ext_resource path="res://SCRIPTS/computer.gd" type="Script" id=2]
@@ -7,8 +7,13 @@
 [ext_resource path="res://SPRITES/icon_app_1.png" type="Texture" id=5]
 [ext_resource path="res://SPRITES/icon_app_2-1.png" type="Texture" id=6]
 [ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://SPRITES/app_3_icon.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 7 )
 
 [node name="computer" type="Node2D"]
@@ -35,23 +40,72 @@ __meta__ = {
 }
 
 [node name="button_app_1" type="Button" parent="."]
-margin_left = 467.925
+margin_left = 493.748
 margin_top = 216.656
-margin_right = 543.925
+margin_right = 569.748
 margin_bottom = 286.656
-rect_scale = Vector2( 2.68396, 2.62997 )
+rect_scale = Vector2( 2.684, 2.684 )
 icon = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="app_1_lb" type="Label" parent="button_app_1"]
+margin_left = 3.81969
+margin_top = 74.2712
+margin_right = 103.82
+margin_bottom = 121.271
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "REGISTRADOR
+  DE DATOS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="button_app_2" type="Button" parent="."]
-margin_left = 721.601
+margin_left = 856.0
 margin_top = 216.656
-margin_right = 797.601
+margin_right = 932.0
 margin_bottom = 286.656
-rect_scale = Vector2( 2.68396, 2.62997 )
+rect_scale = Vector2( 2.684, 2.684 )
 icon = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="app_2_lb" type="Label" parent="button_app_2"]
+margin_left = 5.96124
+margin_top = 74.2712
+margin_right = 105.961
+margin_bottom = 121.271
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "	PORTAL DEL 
+	 EMPLEADO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_app_3" type="Button" parent="."]
+margin_left = 1216.0
+margin_top = 216.656
+margin_right = 1292.0
+margin_bottom = 286.656
+rect_scale = Vector2( 2.684, 2.684 )
+icon = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="app_3_lb" type="Label" parent="button_app_3"]
+margin_top = 74.2712
+margin_right = 100.0
+margin_bottom = 121.271
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "	ADMINISTRADOR 
+  DE CASOS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -62,7 +116,7 @@ margin_top = 7.06177
 margin_right = 79.8801
 margin_bottom = 39.0618
 rect_scale = Vector2( 1.92, 1.84 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 __meta__ = {
@@ -72,3 +126,4 @@ __meta__ = {
 [connection signal="pressed" from="button_off" to="." method="_on_button_off_pressed"]
 [connection signal="pressed" from="button_app_1" to="." method="_on_button_app_1_pressed"]
 [connection signal="pressed" from="button_app_2" to="." method="_on_button_app_2_pressed"]
+[connection signal="pressed" from="button_app_3" to="." method="_on_button_app_3_pressed"]
