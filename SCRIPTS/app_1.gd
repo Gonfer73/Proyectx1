@@ -60,14 +60,16 @@ func _on_button_off_app_1_pressed():
 
 
 func _on_send_button_pressed():
-		if $input_l_2.text == str(l2):
-			if $input_l_3.text == str(l3):
-				if $input_l_4.text == str(l4):
-					if $input_l_5.text == str(l5):
-						if $input_l_6.text == str(l6):
-							if $input_l_7.text == str(l7):
-								if $input_l_8.text == str(l8):
-									if $input_l_9.text == str(l9):
+		print(l2)
+		if $input_l_2.text.to_lower() == str(l2).to_lower():
+			if $input_l_3.text.to_lower() == str(l3).to_lower():
+				if $input_l_4.text.to_lower() == str(l4).to_lower():
+					if $input_l_5.text.to_lower() == str(l5).to_lower():
+						if $input_l_6.text.to_lower() == str(l6).to_lower():
+							if $input_l_7.text.to_lower() == str(l7).to_lower():
+								if $input_l_8.text.to_lower() == str(l8).to_lower():
+									if $input_l_9.text.to_lower() == str(l9).to_lower():
+										Blink.prisioners_nm.append(l3)
 										Blink.office_scr = Blink.office_scr +1
 										$score.text = str(Blink.office_scr)
 										$send_button.text = "DATOS RECOPILADOS CORRECTAMENTE"

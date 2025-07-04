@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var prisioners_nm = []
 var talk = 0
 var position_n: Vector2
 var position_p: Vector2
