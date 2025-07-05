@@ -1,3 +1,44 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SPRITES/case_1_icon.png" type="Texture" id=1]
+[ext_resource path="res://SCRIPTS/app_3.gd" type="Script" id=2]
+[ext_resource path="res://SPRITES/case_2_icon.png" type="Texture" id=3]
 
 [node name="app_3" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="case_1_button" type="Button" parent="."]
+margin_left = 24.0
+margin_top = 88.0
+margin_right = 456.0
+margin_bottom = 192.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="case_2_button" type="Button" parent="."]
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 456.0
+margin_bottom = 296.0
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="case_1_icon" type="Sprite" parent="."]
+position = Vector2( 384, 384 )
+texture = ExtResource( 1 )
+
+[node name="case_2_icon" type="Sprite" parent="."]
+position = Vector2( 384, 504 )
+texture = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="case_1_button" to="." method="_on_case_1_button_mouse_entered"]
+[connection signal="mouse_exited" from="case_1_button" to="." method="_on_case_1_button_mouse_exited"]
+[connection signal="pressed" from="case_1_button" to="." method="_on_case_1_button_pressed"]
+[connection signal="mouse_entered" from="case_2_button" to="." method="_on_case_2_button_mouse_entered"]
+[connection signal="mouse_exited" from="case_2_button" to="." method="_on_case_2_button_mouse_exited"]
