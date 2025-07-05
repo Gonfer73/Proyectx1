@@ -28,4 +28,4 @@ func _input(_event):
 
 
 func _on_wait_timeout():
-	get_tree().change_scene("res://SCENES/instructions_car.tscn")
+	get_tree().change_scene("res://SCENES/car_street.tscn")

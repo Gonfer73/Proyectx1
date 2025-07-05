@@ -17,33 +17,35 @@ func _ready():
 
 
 func _physics_process(delta):
-	var movimiento = direccion * velocidad * delta
-	direccion = (destino - position).normalized()
-	if position.distance_to(destino) < 5:
-		if destino == punto_a:
-			$spr_npc_car_1.frame = 0
-			destino = punto_d
-		elif destino == punto_b:
-			destino = punto_a
-			$spr_npc_car_1.frame = 2
-			$spr_npc_car_1.flip_h = 0
-		elif destino == punto_c:
-			$spr_npc_car_1.frame = 0
-			$spr_npc_car_1.flip_h = 180
-			destino = punto_b
-		elif destino == punto_d:
-			destino = punto_c
-			$spr_npc_car_1.frame = 1
+	if Blink.reading_instructions == false:
+		var movimiento = direccion * velocidad * delta
 		direccion = (destino - position).normalized()
+		if position.distance_to(destino) < 5:
+			if destino == punto_a:
+				$spr_npc_car_1.frame = 0
+				destino = punto_d
+			elif destino == punto_b:
+				destino = punto_a
+				$spr_npc_car_1.frame = 2
+				$spr_npc_car_1.flip_h = 0
+			elif destino == punto_c:
+				$spr_npc_car_1.frame = 0
+				$spr_npc_car_1.flip_h = 180
+				destino = punto_b
+			elif destino == punto_d:
+				destino = punto_c
+				$spr_npc_car_1.frame = 1
+			direccion = (destino - position).normalized()
 
 
-# warning-ignore:return_value_discarded
-	move_and_slide(movimiento)
+	# warning-ignore:return_value_discarded
+		move_and_slide(movimiento)
 
 
 
 # warning-ignore:unused_argument
 func _on_catch_p_body_entered(body):
-	queue_free()
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://SCENES/dead.tscn")
+	if Blink.reading_instructions == false:
+		queue_free()
+	# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://SCENES/dead.tscn")

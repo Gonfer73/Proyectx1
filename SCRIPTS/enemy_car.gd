@@ -17,32 +17,34 @@ func _ready():
 
 
 func _physics_process(delta):
-	var movimiento = direccion * velocidad * delta
-	direccion = (destino - position).normalized()
-	if position.distance_to(destino) < 5:
-		if destino == punto_a:
-			$spr_enemy_car.frame = 1
-			$spr_enemy_car.flip_h = 0
-			destino = punto_d
-		elif destino == punto_b:
-			destino = punto_a
-			$spr_enemy_car.frame = 0
-			$spr_enemy_car.flip_h = 180
-		elif destino == punto_c:
-			$spr_enemy_car.frame = 2
-			destino = punto_b
-		elif destino == punto_d:
-			destino = punto_c
-			$spr_enemy_car.frame = 0
+	if Blink.reading_instructions == false:
+		var movimiento = direccion * velocidad * delta
 		direccion = (destino - position).normalized()
+		if position.distance_to(destino) < 5:
+			if destino == punto_a:
+				$spr_enemy_car.frame = 1
+				$spr_enemy_car.flip_h = 0
+				destino = punto_d
+			elif destino == punto_b:
+				destino = punto_a
+				$spr_enemy_car.frame = 0
+				$spr_enemy_car.flip_h = 180
+			elif destino == punto_c:
+				$spr_enemy_car.frame = 2
+				destino = punto_b
+			elif destino == punto_d:
+				destino = punto_c
+				$spr_enemy_car.frame = 0
+			direccion = (destino - position).normalized()
 
 
 # warning-ignore:return_value_discarded
-	move_and_slide(movimiento)
+		move_and_slide(movimiento)
 
 
 
 func _on_catch_p_body_entered(_body):
-	queue_free()
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://SCENES/caught_criminal.tscn")
+	if Blink.reading_instructions == false:
+		queue_free()
+	# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://SCENES/caught_criminal.tscn")

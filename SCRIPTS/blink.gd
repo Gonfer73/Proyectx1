@@ -2,6 +2,7 @@ extends Node2D
 
 var prisioners_nm = []
 var talk = 0
+var reading_instructions = true
 var position_n: Vector2
 var position_p: Vector2
 var inventory_private = false

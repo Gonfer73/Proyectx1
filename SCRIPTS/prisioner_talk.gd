@@ -9,6 +9,7 @@ func _on_dennie_button_pressed():
 
 func _on_accept_button_pressed():
 	if Blink.knife:
+		Blink.knife = false
 		Blink.money += 100
 		$prisioner_talk_label.hide()
 		$prisioner_talk_label2.show()

@@ -1,14 +1,15 @@
 extends Node2D
 
-var reading_instructions = false
+
 
 
 func _input(_event):
 	if Input.is_action_pressed("ui_accept"):
-		reading_instructions = true
+		Blink.reading_instructions = false
+		
 		
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/car_street.tscn")
+		hide()
 
 func _ready():
 	$shift_icon/wait_1.start()
@@ -18,7 +19,7 @@ func _ready():
 
 
 func _on_wait_2_timeout():
-	while reading_instructions == true:
+	while Blink.reading_instructions:
 		$shift_icon/finger_pointing.position = Vector2(-1004, 222)
 # warning-ignore:unused_variable
 		for i in range(6):
@@ -32,7 +33,7 @@ func _on_wait_2_timeout():
 
 
 func _on_wait_1_timeout():
-	while reading_instructions == true:
+	while Blink.reading_instructions:
 		
 		$space_icon_2/finger_pointing_2.position = Vector2(-1004, 195)
 		$space_icon_2/speedmeter_2.frame = 1
@@ -43,7 +44,7 @@ func _on_wait_1_timeout():
 
 
 func _on_wait_3_timeout():
-	while reading_instructions == true:
+	while Blink.reading_instructions:
 		$car_demostration.rotation_degrees = 0
 		$icon_w.frame = 1
 		yield(get_tree().create_timer(1), "timeout")

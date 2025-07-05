@@ -1,14 +1,13 @@
 extends Node2D
 
-func _ready():
-	$turn_page_2.flip_h = 180
+
 
 func _on_turn_page_button_mouse_entered():
-	$turn_page.show()
+	$turn_page_1.frame = 1
 
 
 func _on_turn_page_button_mouse_exited():
-	$turn_page.hide()
+	$turn_page_0.frame = 0
 
 
 func _on_turn_page_button_pressed():
@@ -17,11 +16,11 @@ func _on_turn_page_button_pressed():
 
 
 func _on_turn_page_button_2_mouse_entered():
-	$turn_page_2.show()
+	$turn_page_0.frame = 1
 
 
 func _on_turn_page_button_2_mouse_exited():
-	$turn_page_2.hide()
+	$turn_page_0.frame = 0
 
 
 func _on_turn_page_button_2_pressed():
