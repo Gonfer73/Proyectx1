@@ -16,7 +16,6 @@ config/icon="res://SPRITES/icon.png"
 
 [autoload]
 
-Enemy="*res://SCRIPTS/enemy.gd"
 Blink="*res://SCRIPTS/blink.gd"
 
 [display]
