@@ -104,13 +104,13 @@ __meta__ = {
 }
 
 [node name="turn_page_0" type="AnimatedSprite" parent="."]
-position = Vector2( 96, 744 )
+position = Vector2( 104, 736 )
+rotation = 1.57079
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 3 )
 
 [node name="turn_page_1" type="AnimatedSprite" parent="."]
-position = Vector2( 1512, 744 )
-rotation = 3.14159
+position = Vector2( 1512, 736 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 4 )
 

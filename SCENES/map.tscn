@@ -28,23 +28,6 @@ extents = Vector2( 40, 40 )
 extents = Vector2( 33.6254, 32.5178 )
 
 [sub_resource type="GDScript" id=6]
-script/source = "extends CollisionShape2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-"
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 37.7525, 48 )
