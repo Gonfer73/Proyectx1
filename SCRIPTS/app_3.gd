@@ -22,3 +22,8 @@ func _on_case_2_button_mouse_exited():
 func _on_case_1_button_pressed():
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://SCENES/case_1.tscn")
+
+
+func _on_button_off_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/computer.tscn")
