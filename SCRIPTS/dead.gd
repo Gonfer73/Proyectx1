@@ -9,5 +9,7 @@ func _ready():
 func _process(_delta):
 	if area:
 		if Input.is_action_pressed("action"):
+			Blink.dead = true
+			Blink.private = true
 # warning-ignore:return_value_discarded
-			get_tree().change_scene("res://SCENES/map.tscn")
+			get_tree().change_scene("res://SCENES/private.tscn")

@@ -8,15 +8,19 @@ func _process(_delta):
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://SCENES/water_tower.tscn")
 	if Input.is_action_pressed("action") and Blink.npc_1:
+			Blink.talking = true
 			$npcs/npc_1_talk.show()
 			$E_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_2:
+			Blink.talking = true
 			$npcs/npc_2_talk.show()
 			$E_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_3:
+			Blink.talking = true
 			$npcs/npc_3_talk.show()
 			$E_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_4:
+		Blink.talking = true
 		$E_icon.hide()
 		$npcs/npc_4.velocidad = 0
 		if Blink.talk == 2:
@@ -40,16 +44,20 @@ func _process(_delta):
 func _input(_event):
 	if Input.is_action_pressed("ui_accept"):
 		if Blink.npc_1:
+			Blink.talking = false
 			$npcs/npc_1_talk.hide()
 			$E_icon.show()
 		elif Blink.npc_2:
+			Blink.talking = false
 			$npcs/npc_2_talk.hide()
 			$E_icon.show()
 		elif Blink.npc_4:
+			Blink.talking = false
 			$npcs/npc_4.velocidad = 9999
 			$npcs/npc_4_talk.hide()
 			$E_icon.show()
 		elif Blink.npc_3:
+			Blink.talking = false
 			$npcs/npc_3_talk.hide()
 			$E_icon.show()
 	elif Input.is_action_pressed("inventory"):

@@ -28,21 +28,22 @@ func _ready():
 
 	
 func _physics_process(_delta):
-	if Input.is_action_pressed("right_move"):
-		velocity.x = w_speed + 200
-	elif Input.is_action_pressed("left_move"):
-		velocity.x = w_speed - 200
-	elif Input.is_action_pressed("up_move"):
-		velocity.y = w_speed - 200
-	elif Input.is_action_pressed("down_move"):
-		velocity.y = w_speed + 200
-	else:
-		velocity.x = 0
-		velocity.y = 0
+	if Blink.talking == false:
+		if Input.is_action_pressed("right_move"):
+			velocity.x = w_speed + 200
+		elif Input.is_action_pressed("left_move"):
+			velocity.x = w_speed - 200
+		elif Input.is_action_pressed("up_move"):
+			velocity.y = w_speed - 200
+		elif Input.is_action_pressed("down_move"):
+			velocity.y = w_speed + 200
+		else:
+			velocity.x = 0
+			velocity.y = 0
 
 
-# warning-ignore:return_value_discarded
-	move_and_slide(velocity)
+	# warning-ignore:return_value_discarded
+		move_and_slide(velocity)
 
 
 func _on_enter_computer_body_entered(_body):

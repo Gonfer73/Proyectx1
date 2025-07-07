@@ -38,6 +38,9 @@ func _process(_delta):
 		Blink.knife = true
 
 func _ready():
+	if Blink.dead:
+		$player.position = Vector2(60, 60)
+		Blink.dead = false
 	if Blink.fridge_interior:
 		$player.position = Vector2(1120, 104)
 		Blink.fridge_interior = false

@@ -4,6 +4,8 @@ extends Node2D
 
 
 func _on_dennie_button_pressed():
+	Blink.bad_button = true
+	Blink.talking = false
 	$prisioner_talk_label.hide()
 
 

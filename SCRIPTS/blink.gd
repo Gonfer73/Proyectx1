@@ -1,7 +1,10 @@
 extends Node2D
 
+var dead = false
+var bad_button = false
 var prisioners_nm = []
 var talk = 0
+var talking = false
 var reading_instructions = true
 var position_n: Vector2
 var position_p: Vector2

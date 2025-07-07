@@ -1,5 +1,7 @@
 extends Node2D
 
+
+
 func _input(_event):
 	if Input.is_action_pressed("inventory"):
 		Blink.inventory_bars = true
@@ -12,13 +14,18 @@ func _ready():
 		Blink.inventory_bars = false
 	
 func _process(_delta):
+	if Blink.bad_button:
+		$E_icon.show()
+		Blink.bad_button = false
 	if Input.is_action_pressed("action") and Blink.prisioner:
+		Blink.talking = true
 		$E_icon.hide()
 		$prisioners/prisioner_1/prisioner_talk.show()
 		$prisioners/prisioner_1/prisioner_talk/prisioner_talk_label.show()
 		$prisioners/prisioner_1/prisioner_talk/prisioner_talk_label2.hide()
 		$prisioners/prisioner_1/prisioner_talk/prisioner_talk_label3.hide()
 	if Input.is_action_pressed("ui_accept"):
+		Blink.talking = false
 		$E_icon.show()
 		$prisioners/prisioner_1/prisioner_talk.hide()
 		

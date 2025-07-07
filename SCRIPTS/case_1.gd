@@ -7,7 +7,7 @@ func _on_turn_page_button_mouse_entered():
 
 
 func _on_turn_page_button_mouse_exited():
-	$turn_page_0.frame = 0
+	$turn_page_1.frame = 0
 
 
 func _on_turn_page_button_pressed():
