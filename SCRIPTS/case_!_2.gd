@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready():
+	if Blink.info_possible:
+		$crimes_button_2/crimes_button_2_pop_up.get_popup().add_item(Blink.clues[0], 0)
 	$crimes_lb_1/option_1.add_item("SELECIONE UNA OPCIÓN", 0)
 	$crimes_lb_1/option_1.add_item("Homicidio", 1)
 	$crimes_lb_1/option_1.add_item("Hurto", 2)
@@ -62,3 +64,22 @@ func _on_crimes_button_2_pop_up_mouse_exited():
 
 func _on_crimes_button_3_pop_up_mouse_exited():
 	$crimes_button_3/crimes_button_3_pop_up.get_popup().hide()
+
+
+func _on_crimes_button_2_pressed():
+	Blink.in_clues = true
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/inventory.tscn")
+
+
+func _on_turn_page_button_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/case_1.tscn")
+
+
+func _on_turn_page_button_mouse_entered():
+	$turn_page_0.frame = 1
+
+
+func _on_turn_page_button_mouse_exited():
+	$turn_page_0.frame = 0

@@ -1,5 +1,8 @@
 extends Node2D
 
+var clues = []
+var in_clues = false
+var info_possible = false
 var dead = false
 var bad_button = false
 var prisioners_nm = []
