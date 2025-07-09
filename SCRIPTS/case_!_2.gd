@@ -40,3 +40,25 @@ func _on_check_box_4_pressed():
 func _on_check_box_5_pressed():
 	if $crimes_lb_4/check_box_4.pressed == true:
 		$crimes_lb_4/check_box_4.pressed = false
+
+
+func _on_check_box_6_pressed():
+	if $crimes_lb_5/check_box_7.pressed == true:
+		$crimes_lb_5/check_box_7. pressed = false
+
+
+func _on_check_box_7_pressed():
+	if $crimes_lb_5/check_box_6.pressed == true:
+		$crimes_lb_5/check_box_6. pressed = false
+
+
+func _on_crimes_button_1_pop_up_mouse_exited():
+	$crimes_button_1/crimes_button_1_pop_up.get_popup().hide()
+
+
+func _on_crimes_button_2_pop_up_mouse_exited():
+	$crimes_button_2/crimes_button_2_pop_up.get_popup().hide()
+
+
+func _on_crimes_button_3_pop_up_mouse_exited():
+	$crimes_button_3/crimes_button_3_pop_up.get_popup().hide()
