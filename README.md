@@ -18,3 +18,5 @@ Space bar - Shoot/Slow down
 Escape - Change scene
 
 I - Inventory
+
+Shift - Accelerate
