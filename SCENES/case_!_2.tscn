@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://SPRITES/screen-1.png" type="Texture" id=1]
 [ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://SPRITES/PDG_symbol.png" type="Texture" id=3]
 [ext_resource path="res://SCRIPTS/case_!_2.gd" type="Script" id=4]
+[ext_resource path="res://SPRITES/info_button.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -23,20 +24,6 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id=7]
-bg_color = Color( 0.878431, 0.839216, 0.513726, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id=8]
-bg_color = Color( 0.878431, 0.839216, 0.513726, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
 [sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.878431, 0.839216, 0.513726, 1 )
 corner_radius_top_left = 20
@@ -44,20 +31,46 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.878431, 0.839216, 0.513726, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.878431, 0.839216, 0.513726, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=7]
 size = 30
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 20
+font_data = ExtResource( 2 )
+
 [sub_resource type="DynamicFont" id=9]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
 size = 20
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 30
+size = 60
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 60
+[sub_resource type="DynamicFont" id=13]
+size = 30
 font_data = ExtResource( 2 )
 
 [node name="case_!_2" type="Node2D"]
@@ -87,10 +100,10 @@ margin_right = 896.0
 margin_bottom = 56.0
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -127,7 +140,7 @@ margin_left = 64.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Sí"
 
 [node name="check_box_1" type="CheckBox" parent="crimes_lb_2"]
@@ -144,7 +157,7 @@ margin_left = 64.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "NO"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -178,7 +191,7 @@ margin_left = 64.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Sí"
 
 [node name="check_box_3" type="CheckBox" parent="crimes_lb_3"]
@@ -195,7 +208,7 @@ margin_left = 64.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "NO"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -229,7 +242,7 @@ margin_left = 64.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "Sí"
 
 [node name="check_box_5" type="CheckBox" parent="crimes_lb_4"]
@@ -246,7 +259,7 @@ margin_left = 64.0
 margin_top = -4.0
 margin_right = 104.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 8 )
 text = "NO"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -257,7 +270,7 @@ margin_left = 912.0
 margin_top = 176.0
 margin_right = 1056.0
 margin_bottom = 216.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "TESTIGOS"
 align = 1
 __meta__ = {
@@ -271,17 +284,26 @@ margin_bottom = 24.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="check_box_6_lb" type="Label" parent="crimes_lb_5/check_box_6"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 60.0
+margin_top = -4.0
+margin_right = 100.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 11 )
+text = "SÍ"
 
 [node name="check_box_7" type="CheckBox" parent="crimes_lb_5"]
-margin_right = 24.0
+margin_left = 480.0
+margin_right = 504.0
 margin_bottom = 24.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="check_box_7_lb" type="Label" parent="crimes_lb_5/check_box_7"]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 56.0
+margin_top = -4.0
+margin_right = 96.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 12 )
+text = "NO"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -296,8 +318,76 @@ margin_left = 256.0
 margin_top = 16.0
 margin_right = 1341.0
 margin_bottom = 96.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 10 )
 text = "FORMULARIO DESCRIPTIVO DEL CASO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crimes_button_1" type="Button" parent="."]
+margin_left = 912.0
+margin_top = 280.0
+margin_right = 1176.0
+margin_bottom = 326.0
+custom_fonts/font = SubResource( 13 )
+text = "AÑADIR TESTIGO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crimes_button_1_pop_up" type="MenuButton" parent="crimes_button_1"]
+margin_left = 464.0
+margin_top = -24.0
+margin_right = 508.0
+margin_bottom = 14.0
+rect_scale = Vector2( 2, 2 )
+icon = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crimes_button_2" type="Button" parent="."]
+margin_left = 912.0
+margin_top = 400.0
+margin_right = 1176.0
+margin_bottom = 446.0
+custom_fonts/font = SubResource( 13 )
+text = "AÑADIR PRUEBA"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crimes_button_2_pop_up" type="MenuButton" parent="crimes_button_2"]
+margin_left = 464.0
+margin_top = -16.0
+margin_right = 508.0
+margin_bottom = 22.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 2
+icon = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crimes_button_3" type="Button" parent="."]
+margin_left = 912.0
+margin_top = 528.0
+margin_right = 1176.0
+margin_bottom = 574.0
+custom_fonts/font = SubResource( 13 )
+text = "AÑADIR IMPUTADO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="crimes_button_3_pop_up" type="MenuButton" parent="crimes_button_3"]
+margin_left = 464.0
+margin_top = -16.0
+margin_right = 508.0
+margin_bottom = 22.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 2
+icon = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -308,3 +398,8 @@ __meta__ = {
 [connection signal="pressed" from="crimes_lb_3/check_box_3" to="." method="_on_check_box_3_pressed"]
 [connection signal="pressed" from="crimes_lb_4/check_box_4" to="." method="_on_check_box_4_pressed"]
 [connection signal="pressed" from="crimes_lb_4/check_box_5" to="." method="_on_check_box_5_pressed"]
+[connection signal="pressed" from="crimes_lb_5/check_box_6" to="." method="_on_check_box_6_pressed"]
+[connection signal="pressed" from="crimes_lb_5/check_box_7" to="." method="_on_check_box_7_pressed"]
+[connection signal="mouse_exited" from="crimes_button_1/crimes_button_1_pop_up" to="." method="_on_crimes_button_1_pop_up_mouse_exited"]
+[connection signal="mouse_exited" from="crimes_button_2/crimes_button_2_pop_up" to="." method="_on_crimes_button_2_pop_up_mouse_exited"]
+[connection signal="mouse_exited" from="crimes_button_3/crimes_button_3_pop_up" to="." method="_on_crimes_button_3_pop_up_mouse_exited"]
