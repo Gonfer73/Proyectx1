@@ -174,7 +174,7 @@ extents = Vector2( 33.3023, 64.3054 )
 extents = Vector2( 32, 96 )
 
 [sub_resource type="RectangleShape2D" id=24]
-extents = Vector2( 40, 40 )
+extents = Vector2( 58.7186, 14.5532 )
 
 [sub_resource type="SpriteFrames" id=25]
 animations = [ {
@@ -319,7 +319,7 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="coll_enter_water" type="CollisionShape2D" parent="portals/enter_water"]
-position = Vector2( -32, 8 )
+position = Vector2( -7.02667, 6.81079 )
 shape = SubResource( 24 )
 
 [node name="E_icon" type="AnimatedSprite" parent="."]
