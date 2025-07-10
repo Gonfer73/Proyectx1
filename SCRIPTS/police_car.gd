@@ -11,6 +11,8 @@ func _ready():
 	$coll_police_car_v.disabled = true
 
 func _process(_delta):
+	if Blink.reading_instructions == false:
+		show()
 	if $speedmeter.frame == 0 : 
 		velocity.x = 0
 		velocity.y = 0
@@ -21,8 +23,8 @@ func _timer_2s():
 
 
 func _input(_event):
-	if Blink.reading_instructions == false:
-		if Input.is_action_pressed("ui_accept"):
+	if Blink.reading_instructions == false and Blink.dying == false:
+		if Input.is_action_pressed("ui_accept") and Blink.dying == false:
 			if $speedmeter.frame == 1:
 				$speedmeter.frame = 0
 				velocity.x = 0
@@ -31,10 +33,10 @@ func _input(_event):
 			else:
 				$speedmeter.frame = 0
 				_timer_2s()
-		elif Input.is_action_pressed("acelareta"):
+		elif Input.is_action_pressed("acelareta") and Blink.dying == false:
 			$speedmeter.frame += 1
 			yield(get_tree().create_timer(2), "timeout")
-		elif Input.is_action_just_released("acelareta"):
+		elif Input.is_action_just_released("acelareta") and Blink.dying == false:
 	# warning-ignore:unused_variable
 			for i in range(6):
 				$speedmeter.frame -= 1
@@ -76,46 +78,58 @@ func _physics_process(_delta):
 func _on_buildings_7_body_entered(body):
 	if Blink.reading_instructions == false:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		Blink.can_pass_dead = false
+		Blink.dying = true
+		$dead.show()
 
 
 # warning-ignore:unused_argument
 func _on_buildings_6_body_entered(body):
 	if Blink.reading_instructions == false:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		Blink.can_pass_dead = false
+		Blink.dying = true
+		$dead.show()
 	
 
 # warning-ignore:unused_argument
 func _on_buildings_5_body_entered(body):
 	if Blink.reading_instructions == false:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		Blink.can_pass_dead = false
+		Blink.dying = true
+		$dead.show()
 
 
 # warning-ignore:unused_argument
 func _on_buildings_4_body_entered(body):
 	if Blink.reading_instructions == false:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		Blink.can_pass_dead = false
+		Blink.dying = true
+		$dead.show()
 
 
 # warning-ignore:unused_argument
 func _on_buildings_3_body_entered(body):
 	if Blink.reading_instructions == false:
+		Blink.can_pass_dead = false
+		Blink.dying = true
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		$dead.show()
 
 
 # warning-ignore:unused_argument
 func _on_buildings_2_body_entered(body):
 	if Blink.reading_instructions == false:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		Blink.dying = true
+		$dead.show()
 
 
 # warning-ignore:unused_argument
 func _on_buildings_1_body_entered(body):
 	if Blink.reading_instructions == false:
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+		Blink.dying = true
+		$dead.show()

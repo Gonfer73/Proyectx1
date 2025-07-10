@@ -31,6 +31,19 @@ func _input(_event):
 			Blink.cup = false
 			$water_cup.hide()
 			Blink.clues.insert(0, "Vaso de agua")
+	elif Input.is_action_pressed("object_1") and Blink.showing_advert == false:
+		if Blink.in_clues:
+			Blink.showing_advert = true
+			$advert.show()
+			yield(get_tree().create_timer(1), "timeout")
+			$advert.hide()
+			Blink.showing_advert = false
+		else:
+			Blink.showing_advert = true
+			$advert_2.show()
+			yield(get_tree().create_timer(1), "timeout")
+			$advert_2.hide()
+			Blink.showing_advert = false
 func _ready():
 	$coin_icon/lb_money.text = str(Blink.money)
 	if Blink.cup:

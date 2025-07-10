@@ -1,5 +1,8 @@
 extends Node2D
 
+var dying = false
+var can_pass_dead = false
+var showing_advert = false
 var clues = []
 var in_clues = false
 var info_possible = false
