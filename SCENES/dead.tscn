@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://SCRIPTS/dead.gd" type="Script" id=1]
 [ext_resource path="res://SPRITES/dead-1.png" type="Texture" id=2]
 [ext_resource path="res://SPRITES/enemy-1.png" type="Texture" id=3]
 [ext_resource path="res://SPRITES/icon_e.png" type="Texture" id=4]
 [ext_resource path="res://SPRITES/empty.png" type="Texture" id=5]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -13,6 +14,10 @@ animations = [ {
 "name": "default",
 "speed": 1.0
 } ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+font_data = ExtResource( 6 )
 
 [node name="dead" type="Node2D"]
 position = Vector2( -176, 0 )
@@ -32,3 +37,13 @@ texture = ExtResource( 2 )
 position = Vector2( 1536, 768 )
 frames = SubResource( 1 )
 playing = true
+
+[node name="timer" type="Label" parent="."]
+margin_left = 939.901
+margin_top = 642.56
+margin_right = 979.901
+margin_bottom = 801.56
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
