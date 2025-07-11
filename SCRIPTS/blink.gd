@@ -1,13 +1,20 @@
 extends Node2D
 
+var good = false
+var bad = false
 var dying = false
 var can_pass_dead = false
 var showing_advert = false
 var clues = []
 var in_clues = false
+var info_possible_2 = false
+var info_possible_1 = false
 var info_possible = false
 var dead = false
 var bad_button = false
+var witness_nm = []
+var witness_age = []
+var prisioners_age = []
 var prisioners_nm = []
 var talk = 0
 var talking = false

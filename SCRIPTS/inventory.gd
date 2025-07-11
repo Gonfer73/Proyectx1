@@ -1,6 +1,8 @@
 extends Node2D
 
 
+
+
 func _input(_event):
 	if Input.is_action_pressed("inventory"):
 		if Blink.inventory_cor:
@@ -45,6 +47,10 @@ func _input(_event):
 			$advert_2.hide()
 			Blink.showing_advert = false
 func _ready():
+	if Blink.in_clues:
+		$better_not.show()
+	else:
+		$better_not.hide()
 	$coin_icon/lb_money.text = str(Blink.money)
 	if Blink.cup:
 # warning-ignore:standalone_expression
@@ -53,3 +59,8 @@ func _ready():
 		$identification.show()
 	if Blink.knife:
 		$knife.show()
+
+
+func _on_better_not_pressed():
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/case_!_2.tscn")

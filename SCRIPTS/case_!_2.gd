@@ -3,6 +3,12 @@ extends Node2D
 func _ready():
 	if Blink.info_possible:
 		$crimes_button_2/crimes_button_2_pop_up.get_popup().add_item(Blink.clues[0], 0)
+	if Blink.info_possible_1:
+		$crimes_button_1/crimes_button_1_pop_up.get_popup().add_item(Blink.witness_nm[0], 0)
+		$crimes_button_1/crimes_button_1_pop_up.get_popup().add_item(Blink.witness_age[0], 1)
+	if Blink.info_possible_2:
+		$crimes_button_3/crimes_button_3_pop_up.get_popup().add_item(Blink.prisioners_nm[0], 0)
+		$crimes_button_3/crimes_button_3_pop_up.get_popup().add_item(Blink.prisioners_age[0], 1)
 	$crimes_lb_1/option_1.add_item("SELECIONE UNA OPCIÓN", 0)
 	$crimes_lb_1/option_1.add_item("Homicidio", 1)
 	$crimes_lb_1/option_1.add_item("Hurto", 2)
@@ -83,3 +89,15 @@ func _on_turn_page_button_mouse_entered():
 
 func _on_turn_page_button_mouse_exited():
 	$turn_page_0.frame = 0
+
+
+func _on_crimes_button_1_pressed():
+	Blink.good = true
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/witness_data.tscn")
+
+
+func _on_crimes_button_3_pressed():
+	Blink.bad = true
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/witness_data.tscn")
