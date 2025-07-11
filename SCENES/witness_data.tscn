@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://SCRIPTS/witness_data.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 1 )
+
+[node name="witness_data" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="witness_1" type="LineEdit" parent="."]
+margin_left = 320.0
+margin_top = 56.0
+margin_right = 1278.0
+margin_bottom = 256.0
+custom_fonts/font = SubResource( 1 )
+text = "NOMBRE COMPLETO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="witness_2" type="LineEdit" parent="."]
+margin_left = 320.0
+margin_top = 328.0
+margin_right = 1278.0
+margin_bottom = 520.0
+custom_fonts/font = SubResource( 2 )
+text = "EDAD"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add_button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 320.0
+margin_top = 584.0
+margin_right = 1272.0
+margin_bottom = 768.0
+custom_fonts/font = SubResource( 3 )
+text = "AÑADIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="better_not" type="Button" parent="."]
+margin_left = 1296.0
+margin_top = 720.0
+margin_right = 1588.0
+margin_bottom = 806.0
+custom_fonts/font = SubResource( 4 )
+text = "MEJOR NO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="add_button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="better_not" to="." method="_on_better_not_pressed"]
