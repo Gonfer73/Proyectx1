@@ -80,18 +80,17 @@ position = Vector2( 1368, 624 )
 texture = ExtResource( 5 )
 
 [node name="identification" type="Sprite" parent="."]
-visible = false
 position = Vector2( 128, 120 )
 texture = ExtResource( 6 )
 
 [node name="water_cup" type="Sprite" parent="."]
 visible = false
-position = Vector2( 384, 136 )
+position = Vector2( 640, 136 )
 texture = ExtResource( 7 )
 
 [node name="knife" type="Sprite" parent="."]
 visible = false
-position = Vector2( 648, 128 )
+position = Vector2( 904, 128 )
 texture = ExtResource( 8 )
 
 [node name="advert" type="Label" parent="."]
