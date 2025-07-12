@@ -134,3 +134,8 @@ func _on_check_bulltet_body_entered(_body):
 
 func _on_wait_bullet_timeout():
 	Blink.shooting = true
+
+
+func _on_change_street_body_entered(_body):
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/street.tscn")

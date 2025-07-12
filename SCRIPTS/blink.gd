@@ -1,5 +1,12 @@
 extends Node2D
 
+
+var street_2 = false
+var case_1_witness = null
+var case_1_proof = null
+var case_1_gun = null
+var case_1_knife = null
+var case_1_type_of_crime: int 
 var good = false
 var bad = false
 var dying = false

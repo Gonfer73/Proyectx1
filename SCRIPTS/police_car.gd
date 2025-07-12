@@ -47,27 +47,27 @@ func _physics_process(_delta):
 			$coll_police_car_v.disabled = true
 			$coll_police_car_h.disabled = false
 			velocity.y = 0
-			velocity.x = w_speed + int($speedmeter/speed.text) * 3
+			velocity.x = w_speed + int($speedmeter/speed.text) * 3.5
 			$spr_police_car.set_frame(0)
 			$spr_police_car.flip_h = 0
 		elif Input.is_action_pressed("left_move"):
 			$coll_police_car_v.disabled = true
 			$coll_police_car_h.disabled = false
 			velocity.y = 0
-			velocity.x = w_speed - int($speedmeter/speed.text) * 3
+			velocity.x = w_speed - int($speedmeter/speed.text) * 3.5
 			$spr_police_car.flip_h = 180
 			$spr_police_car.set_frame(0)
 		elif Input.is_action_pressed("up_move"):
 			$coll_police_car_h.disabled = true
 			$coll_police_car_v.disabled = false
 			velocity.x = 0
-			velocity.y = w_speed - int($speedmeter/speed.text) * 3
+			velocity.y = w_speed - int($speedmeter/speed.text) * 3.5
 			$spr_police_car.set_frame(1)
 		elif Input.is_action_pressed("down_move"):
 			$coll_police_car_h.disabled = true
 			$coll_police_car_v.disabled = false
 			velocity.x = 0
-			velocity.y = w_speed + int($speedmeter/speed.text) * 3
+			velocity.y = w_speed + int($speedmeter/speed.text) * 3.5
 			$spr_police_car.set_frame(2)
 
 

@@ -24,7 +24,7 @@ func _input(_event):
 		if Blink.in_clues:
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://SCENES/case_!_2.tscn")
-	elif Input.is_action_pressed("object_2"):
+	elif Input.is_action_pressed("object_3"):
 		if Blink.in_clues == false:
 			Blink.cup = false
 			$water_cup.hide()

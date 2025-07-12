@@ -16,7 +16,43 @@ func _ready():
 	$crimes_lb_1/option_1.add_item("Abuso", 4)
 	$crimes_lb_1/option_1.add_item("Maltrato animal", 5)
 	$crimes_lb_1/option_1.add_item("Desacato a la autoridad", 6)
-	
+	$crimes_lb_1/option_1.selected = Blink.case_1_type_of_crime
+	if Blink.case_1_knife:
+		$crimes_lb_2/check_box_0.pressed = true
+		$crimes_lb_2/check_box_1.pressed = false
+	elif Blink.case_1_knife == false:
+		$crimes_lb_2/check_box_0.pressed = false
+		$crimes_lb_2/check_box_1.pressed = true
+	else:
+		$crimes_lb_2/check_box_0.pressed = false
+		$crimes_lb_2/check_box_1.pressed = false
+	if Blink.case_1_gun:
+		$crimes_lb_3/check_box_2.pressed = true
+		$crimes_lb_3/check_box_3.pressed = false
+	elif Blink.case_1_gun == false:
+		$crimes_lb_3/check_box_2.pressed = false
+		$crimes_lb_3/check_box_3.pressed = true
+	else:
+		$crimes_lb_3/check_box_2.pressed = false
+		$crimes_lb_3/check_box_3.pressed = false
+	if Blink.case_1_proof:
+		$crimes_lb_4/check_box_4.pressed = true
+		$crimes_lb_4/check_box_5.pressed = false
+	elif Blink.case_1_proof == false:
+		$crimes_lb_4/check_box_4.pressed = false
+		$crimes_lb_4/check_box_5.pressed = true
+	else:
+		$crimes_lb_4/check_box_4.pressed = false
+		$crimes_lb_4/check_box_5.pressed = false
+	if Blink.case_1_witness:
+		$crimes_lb_5/check_box_6.pressed = true
+		$crimes_lb_5/check_box_7.pressed = false
+	elif Blink.case_1_witness == false:
+		$crimes_lb_5/check_box_6.pressed = false
+		$crimes_lb_5/check_box_7.pressed = true
+	else:
+		$crimes_lb_5/check_box_6.pressed = false
+		$crimes_lb_5/check_box_7.pressed = false
 	
 
 
@@ -101,3 +137,31 @@ func _on_crimes_button_3_pressed():
 	Blink.bad = true
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://SCENES/witness_data.tscn")
+
+
+func _on_change_data_pressed():
+	Blink.case_1_type_of_crime = $crimes_lb_1/option_1.selected
+	if $crimes_lb_2/check_box_0.pressed:
+		Blink.case_1_knife = true
+	elif $crimes_lb_2/check_box_1.pressed:
+		Blink.case_1_knife = false
+	else:
+		Blink.case_1_knife = null
+	if $crimes_lb_3/check_box_2.pressed:
+		Blink.case_1_gun = true
+	elif $crimes_lb_3/check_box_3.pressed:
+		Blink.case_1_gun = false
+	else:
+		Blink.case_1_gun = null
+	if $crimes_lb_4/check_box_4.pressed:
+		Blink.case_1_proof = true
+	elif $crimes_lb_4/check_box_5.pressed:
+		Blink.case_1_proof = false
+	else:
+		Blink.case_1_proof = null
+	if $crimes_lb_5/check_box_6.pressed:
+		Blink.case_1_witness = true
+	elif $crimes_lb_5/check_box_7.pressed:
+		Blink.case_1_witness = false
+	else:
+		Blink.case_1_witness = null
