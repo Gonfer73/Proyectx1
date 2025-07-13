@@ -1,9 +1,11 @@
 extends Node2D
 
 
-func _process(_delta):
-	if Blink.can_pass_dead == false:
-		yield(get_tree().create_timer(1), "timeout")
+
+
+func _ready():
+		yield(get_tree().create_timer(3), "timeout")
+		$E_icon.show()
 		Blink.can_pass_dead = true
 		
 func _input(_event):

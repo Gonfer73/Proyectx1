@@ -11,6 +11,11 @@ func _ready():
 	$coll_police_car_v.disabled = true
 
 func _process(_delta):
+	if Blink.reading_instructions == false and Blink.can_pass_dead == false and Blink.dying == true:
+# warning-ignore:return_value_discarded
+		print("YESSS")
+		$dead.show()
+		
 	if Blink.reading_instructions == false:
 		show()
 	if $speedmeter.frame == 0 : 
@@ -44,6 +49,8 @@ func _input(_event):
 func _physics_process(_delta):
 	if Blink.reading_instructions == false:
 		if Input.is_action_pressed("right_move"):
+			$coll_wall_0/coll_coll_wall_0.disabled = false
+			$coll_wall_1/coll_coll_wall_1.disabled = true
 			$coll_police_car_v.disabled = true
 			$coll_police_car_h.disabled = false
 			velocity.y = 0
@@ -51,6 +58,8 @@ func _physics_process(_delta):
 			$spr_police_car.set_frame(0)
 			$spr_police_car.flip_h = 0
 		elif Input.is_action_pressed("left_move"):
+			$coll_wall_0/coll_coll_wall_0.disabled = false
+			$coll_wall_1/coll_coll_wall_1.disabled = true
 			$coll_police_car_v.disabled = true
 			$coll_police_car_h.disabled = false
 			velocity.y = 0
@@ -58,12 +67,16 @@ func _physics_process(_delta):
 			$spr_police_car.flip_h = 180
 			$spr_police_car.set_frame(0)
 		elif Input.is_action_pressed("up_move"):
+			$coll_wall_0/coll_coll_wall_0.disabled = true
+			$coll_wall_1/coll_coll_wall_1.disabled = false
 			$coll_police_car_h.disabled = true
 			$coll_police_car_v.disabled = false
 			velocity.x = 0
 			velocity.y = w_speed - int($speedmeter/speed.text) * 3.5
 			$spr_police_car.set_frame(1)
 		elif Input.is_action_pressed("down_move"):
+			$coll_wall_0/coll_coll_wall_0.disabled = true
+			$coll_wall_1/coll_coll_wall_1.disabled = false
 			$coll_police_car_h.disabled = true
 			$coll_police_car_v.disabled = false
 			velocity.x = 0
@@ -133,3 +146,19 @@ func _on_buildings_1_body_entered(body):
 # warning-ignore:return_value_discarded
 		Blink.dying = true
 		$dead.show()
+
+
+func _on_enter_car_street_2_body_entered(_body):
+	get_tree().change_scene("res://SCENES/street_2.tscn")
+	
+
+
+# warning-ignore:unused_argument
+func _on_coll_wall_1_body_entered(body):
+		Blink.dying = true
+		Blink.can_pass_dead = false
+
+# warning-ignore:unused_argument
+func _on_coll_wall_0_body_entered(body):
+			Blink.dying = true
+			Blink.can_pass_dead = false

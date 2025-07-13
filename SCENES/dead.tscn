@@ -34,6 +34,7 @@ scale = Vector2( 0.9893, 0.981517 )
 texture = ExtResource( 2 )
 
 [node name="E_icon" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 1536, 768 )
 frames = SubResource( 1 )
 playing = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://SPRITES/police_car_2-1.png" type="Texture" id=1]
 [ext_resource path="res://SPRITES/police_car_1-1.png" type="Texture" id=2]
@@ -36,6 +36,9 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 10 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 80, 48 )
 
 [node name="police_car" type="KinematicBody2D"]
 position = Vector2( 464, 336 )
@@ -75,3 +78,21 @@ custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="coll_wall_0" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="coll_coll_wall_0" type="CollisionShape2D" parent="coll_wall_0"]
+shape = SubResource( 6 )
+
+[node name="coll_wall_1" type="Area2D" parent="."]
+rotation = -1.58067
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="coll_coll_wall_1" type="CollisionShape2D" parent="coll_wall_1"]
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="coll_wall_0" to="." method="_on_coll_wall_0_body_entered"]
+[connection signal="body_entered" from="coll_wall_1" to="." method="_on_coll_wall_1_body_entered"]
