@@ -44,8 +44,5 @@ func _physics_process(delta):
 
 
 # warning-ignore:unused_argument
-func _on_catch_p_body_entered(body):
-	if Blink.reading_instructions == false:
-		queue_free()
-	# warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/dead.tscn")
+
+		

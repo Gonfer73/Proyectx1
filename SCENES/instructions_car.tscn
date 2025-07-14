@@ -93,7 +93,7 @@ script = ExtResource( 5 )
 
 [node name="back_instructions" type="Sprite" parent="."]
 position = Vector2( 824, 496 )
-scale = Vector2( 26.48, 20 )
+scale = Vector2( 37.16, 20 )
 texture = ExtResource( 23 )
 
 [node name="shift_icon" type="Sprite" parent="."]

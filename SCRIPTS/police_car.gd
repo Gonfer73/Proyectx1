@@ -13,7 +13,6 @@ func _ready():
 func _process(_delta):
 	if Blink.reading_instructions == false and Blink.can_pass_dead == false and Blink.dying == true:
 # warning-ignore:return_value_discarded
-		print("YESSS")
 		$dead.show()
 		
 	if Blink.reading_instructions == false:
@@ -51,36 +50,36 @@ func _physics_process(_delta):
 		if Input.is_action_pressed("right_move"):
 			$coll_wall_0/coll_coll_wall_0.disabled = false
 			$coll_wall_1/coll_coll_wall_1.disabled = true
-			$coll_police_car_v.disabled = true
-			$coll_police_car_h.disabled = false
+			$coll_police_car_v.disabled = false
+			$coll_police_car_h.disabled = true
 			velocity.y = 0
-			velocity.x = w_speed + int($speedmeter/speed.text) * 3.5
+			velocity.x = w_speed + int($speedmeter/speed.text) * 5
 			$spr_police_car.set_frame(0)
 			$spr_police_car.flip_h = 0
 		elif Input.is_action_pressed("left_move"):
 			$coll_wall_0/coll_coll_wall_0.disabled = false
 			$coll_wall_1/coll_coll_wall_1.disabled = true
-			$coll_police_car_v.disabled = true
-			$coll_police_car_h.disabled = false
+			$coll_police_car_v.disabled = false
+			$coll_police_car_h.disabled = true
 			velocity.y = 0
-			velocity.x = w_speed - int($speedmeter/speed.text) * 3.5
+			velocity.x = w_speed - int($speedmeter/speed.text) * 5
 			$spr_police_car.flip_h = 180
 			$spr_police_car.set_frame(0)
 		elif Input.is_action_pressed("up_move"):
 			$coll_wall_0/coll_coll_wall_0.disabled = true
 			$coll_wall_1/coll_coll_wall_1.disabled = false
-			$coll_police_car_h.disabled = true
-			$coll_police_car_v.disabled = false
+			$coll_police_car_h.disabled = false
+			$coll_police_car_v.disabled = true
+			velocity.y = w_speed - int($speedmeter/speed.text) * 5
 			velocity.x = 0
-			velocity.y = w_speed - int($speedmeter/speed.text) * 3.5
 			$spr_police_car.set_frame(1)
 		elif Input.is_action_pressed("down_move"):
 			$coll_wall_0/coll_coll_wall_0.disabled = true
 			$coll_wall_1/coll_coll_wall_1.disabled = false
-			$coll_police_car_h.disabled = true
-			$coll_police_car_v.disabled = false
+			$coll_police_car_h.disabled = false
+			$coll_police_car_v.disabled = true
 			velocity.x = 0
-			velocity.y = w_speed + int($speedmeter/speed.text) * 3.5
+			velocity.y = w_speed + int($speedmeter/speed.text) * 5
 			$spr_police_car.set_frame(2)
 
 
@@ -94,6 +93,9 @@ func _on_buildings_7_body_entered(body):
 		Blink.can_pass_dead = false
 		Blink.dying = true
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
 
 
 # warning-ignore:unused_argument
@@ -103,6 +105,10 @@ func _on_buildings_6_body_entered(body):
 		Blink.can_pass_dead = false
 		Blink.dying = true
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
+
 	
 
 # warning-ignore:unused_argument
@@ -112,6 +118,9 @@ func _on_buildings_5_body_entered(body):
 		Blink.can_pass_dead = false
 		Blink.dying = true
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
 
 
 # warning-ignore:unused_argument
@@ -121,6 +130,9 @@ func _on_buildings_4_body_entered(body):
 		Blink.can_pass_dead = false
 		Blink.dying = true
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
 
 
 # warning-ignore:unused_argument
@@ -130,6 +142,9 @@ func _on_buildings_3_body_entered(body):
 		Blink.dying = true
 # warning-ignore:return_value_discarded
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
 
 
 # warning-ignore:unused_argument
@@ -138,6 +153,9 @@ func _on_buildings_2_body_entered(body):
 # warning-ignore:return_value_discarded
 		Blink.dying = true
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
 
 
 # warning-ignore:unused_argument
@@ -146,10 +164,14 @@ func _on_buildings_1_body_entered(body):
 # warning-ignore:return_value_discarded
 		Blink.dying = true
 		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
 
 
 func _on_enter_car_street_2_body_entered(_body):
-	get_tree().change_scene("res://SCENES/street_2.tscn")
+	Blink.street_2 = true
+	get_tree().change_scene("res://SCENES/car_street_2.tscn")
 	
 
 
@@ -162,3 +184,13 @@ func _on_coll_wall_1_body_entered(body):
 func _on_coll_wall_0_body_entered(body):
 			Blink.dying = true
 			Blink.can_pass_dead = false
+
+
+func _on_npc_crash_body_entered(_body):
+	if Blink.reading_instructions == false:
+		Blink.dying = true
+		$dead.show()
+		yield(get_tree().create_timer(3), "timeout")
+		Blink.can_pass_dead = true
+		$dead/E_icon.show()
+	# warning-ignore:return_value_discarded
