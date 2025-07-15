@@ -1,15 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://SPRITES/police_car_2-1.png" type="Texture" id=1]
 [ext_resource path="res://SPRITES/police_car_1-1.png" type="Texture" id=2]
 [ext_resource path="res://SCRIPTS/police_car.gd" type="Script" id=3]
-[ext_resource path="res://SPRITES/speedmeter_2.png" type="Texture" id=4]
-[ext_resource path="res://SPRITES/speedmeter_3.png" type="Texture" id=5]
-[ext_resource path="res://SPRITES/speedmeter_4.png" type="Texture" id=6]
-[ext_resource path="res://SPRITES/speedmeter_0.png" type="Texture" id=7]
-[ext_resource path="res://SPRITES/speedmeter_5.png" type="Texture" id=8]
-[ext_resource path="res://SPRITES/speedmeter_1.png" type="Texture" id=9]
-[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=10]
 [ext_resource path="res://SPRITES/police_car_1-1_down.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -24,24 +17,12 @@ animations = [ {
 extents = Vector2( 64, 40 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 32, 72 )
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "speed",
-"speed": 5.0
-} ]
-
-[sub_resource type="DynamicFont" id=5]
-font_data = ExtResource( 10 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 80, 48 )
+extents = Vector2( 80, 24 )
 
 [node name="police_car" type="KinematicBody2D"]
-position = Vector2( 464, 336 )
+position = Vector2( 416, 216 )
+collision_layer = 32768
+collision_mask = 32768
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
@@ -52,50 +33,15 @@ scale = Vector2( 1.3, 1.3 )
 frames = SubResource( 1 )
 animation = "lights"
 
-[node name="coll_police_car_h" type="CollisionShape2D" parent="."]
+[node name="coll_police_car" type="CollisionShape2D" parent="."]
 scale = Vector2( 1.3, 1.3 )
 shape = SubResource( 2 )
 
-[node name="coll_police_car_v" type="CollisionShape2D" parent="."]
-scale = Vector2( 1.3, 1.3 )
+[node name="buildings_touch" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 4096
+
+[node name="coll_building_touch" type="CollisionShape2D" parent="buildings_touch"]
 shape = SubResource( 3 )
 
-[node name="car_camera" type="Camera2D" parent="."]
-position = Vector2( 336, 88 )
-current = true
-
-[node name="speedmeter" type="AnimatedSprite" parent="."]
-position = Vector2( 880, 248 )
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 4 )
-animation = "speed"
-frame = 3
-
-[node name="speed" type="Label" parent="speedmeter"]
-margin_left = -176.0
-margin_top = 192.0
-margin_right = -136.0
-margin_bottom = 206.0
-rect_scale = Vector2( 12.156, 5.17932 )
-custom_fonts/font = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="coll_wall_0" type="Area2D" parent="."]
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="coll_coll_wall_0" type="CollisionShape2D" parent="coll_wall_0"]
-shape = SubResource( 6 )
-
-[node name="coll_wall_1" type="Area2D" parent="."]
-rotation = -1.58067
-collision_layer = 32768
-collision_mask = 32768
-
-[node name="coll_coll_wall_1" type="CollisionShape2D" parent="coll_wall_1"]
-shape = SubResource( 6 )
-
-[connection signal="body_entered" from="coll_wall_0" to="." method="_on_coll_wall_0_body_entered"]
-[connection signal="body_entered" from="coll_wall_1" to="." method="_on_coll_wall_1_body_entered"]
+[connection signal="body_entered" from="buildings_touch" to="." method="_on_buildings_touch_body_entered"]
