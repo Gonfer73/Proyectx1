@@ -15,20 +15,23 @@ var wait = false
 func get_input():
 	rotation_dir = 0
 	velocity = Vector2()
-	if Input.is_action_pressed("right_move") and Blink.dying == false:
-		rotation_dir += 1
-	if Input.is_action_pressed("left_move") and Blink.dying == false:
-		rotation_dir -= 1
-	if Input.is_action_pressed("down_move"):
-		velocity = Vector2(-(Blink.speed * 5), 0).rotated(rotation)
-	if Input.is_action_pressed("up_move"):
-		velocity = Vector2((Blink.speed * 5), 0).rotated(rotation)
+	if Blink.reading_instructions == false:
+		if Input.is_action_pressed("right_move") and Blink.dying == false:
+			rotation_dir += 1
+		if Input.is_action_pressed("left_move") and Blink.dying == false:
+			rotation_dir -= 1
+		if Input.is_action_pressed("down_move"):
+			velocity = Vector2(-(Blink.speed * 5), 0).rotated(rotation)
+		if Input.is_action_pressed("up_move"):
+			velocity = Vector2((Blink.speed * 5), 0).rotated(rotation)
 
 
 func _process(_delta):
+	if Blink.reading_instructions:
+		Blink.speed = 0
 	Blink.position_p = position
 	velocity = Vector2((Blink.speed * 5), 0).rotated(rotation)
-	yield(get_tree().create_timer(2), "timeout")
+
 
 func _physics_process(delta):
 	get_input()
@@ -37,98 +40,18 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 # warning-ignore:unused_argument
-func _on_buildings_7_body_entered(body):
-	if Blink.reading_instructions == false:
-# warning-ignore:return_value_discarded
-		Blink.can_pass_dead = false
-		Blink.dying = true
-		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
 
-
-# warning-ignore:unused_argument
-func _on_buildings_6_body_entered(body):
-	if Blink.reading_instructions == false:
-# warning-ignore:return_value_discarded
-		Blink.can_pass_dead = false
-		Blink.dying = true
-		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
-
-	
-
-# warning-ignore:unused_argument
-func _on_buildings_5_body_entered(body):
-	if Blink.reading_instructions == false:
-# warning-ignore:return_value_discarded
-		Blink.can_pass_dead = false
-		Blink.dying = true
-		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
-
-
-# warning-ignore:unused_argument
-func _on_buildings_4_body_entered(body):
-	if Blink.reading_instructions == false:
-# warning-ignore:return_value_discarded
-		Blink.can_pass_dead = false
-		Blink.dying = true
-		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
-
-
-# warning-ignore:unused_argument
-func _on_buildings_3_body_entered(body):
-	if Blink.reading_instructions == false:
-		Blink.can_pass_dead = false
-		Blink.dying = true
-		rotation_dir = 0
-# warning-ignore:return_value_discarded
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
-
-
-# warning-ignore:unused_argument
-func _on_buildings_2_body_entered(body):
-	if Blink.reading_instructions == false:
-# warning-ignore:return_value_discarded
-		Blink.dying = true
-		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
-
-
-
-# warning-ignore:unused_argument
-func _on_buildings_1_body_entered(body):
-	if Blink.reading_instructions == false:
-# warning-ignore:return_value_discarded
-		Blink.dying = true
-		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
-		Blink.can_pass_dead = true
 
 
 func _on_enter_car_street_2_body_entered(_body):
 	Blink.street_2 = true
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://SCENES/car_street_2.tscn")
 	
 
 
 # warning-ignore:unused_argument
-func _on_coll_wall_1_body_entered(body):
-		Blink.dying = true
-		Blink.can_pass_dead = false
-		
 
-# warning-ignore:unused_argument
-func _on_coll_wall_0_body_entered(body):
-			Blink.dying = true
-			Blink.can_pass_dead = false
 
 
 func _on_npc_crash_body_entered(_body):

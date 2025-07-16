@@ -45,6 +45,4 @@ func _physics_process(delta):
 
 func _on_catch_p_body_entered(_body):
 	if Blink.reading_instructions == false:
-		queue_free()
-	# warning-ignore:return_value_discarded
-		get_tree().change_scene("res://SCENES/caught_criminal.tscn")
+		$timer_enemy.start()
