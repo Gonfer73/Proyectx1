@@ -16,9 +16,9 @@ func get_input():
 	rotation_dir = 0
 	velocity = Vector2()
 	if Blink.reading_instructions == false:
-		if Input.is_action_pressed("right_move") and Blink.dying == false:
+		if Input.is_action_pressed("right_move") and Blink.dying == false and Blink.speed != 0:
 			rotation_dir += 1
-		if Input.is_action_pressed("left_move") and Blink.dying == false:
+		if Input.is_action_pressed("left_move") and Blink.dying == false and Blink.speed != 0:
 			rotation_dir -= 1
 		if Input.is_action_pressed("down_move"):
 			velocity = Vector2(-(Blink.speed * 5), 0).rotated(rotation)
@@ -58,10 +58,14 @@ func _on_npc_crash_body_entered(_body):
 	if Blink.reading_instructions == false:
 		Blink.dying = true
 		rotation_dir = 0
-		yield(get_tree().create_timer(3), "timeout")
+		yield(get_tree().create_timer(10), "timeout")
 		Blink.can_pass_dead = true
+		
 	# warning-ignore:return_value_discarded
 
 
 func _on_buildings_touch_body_entered(_body):
 	Blink.dying = true
+	rotation_dir = 0
+	yield(get_tree().create_timer(10), "timeout")
+	Blink.can_pass_dead = true

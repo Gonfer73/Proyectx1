@@ -24,15 +24,6 @@ func _input(_event):
 		if Blink.in_clues:
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://SCENES/case_!_2.tscn")
-	elif Input.is_action_pressed("object_3"):
-		if Blink.in_clues == false:
-			Blink.cup = false
-			$water_cup.hide()
-		elif Blink.in_clues:
-			Blink.info_possible = true
-			Blink.cup = false
-			$water_cup.hide()
-			Blink.clues.insert(0, "Vaso de agua")
 	elif Input.is_action_pressed("object_1") and Blink.showing_advert == false:
 		if Blink.in_clues:
 			Blink.showing_advert = true
@@ -46,6 +37,18 @@ func _input(_event):
 			yield(get_tree().create_timer(1), "timeout")
 			$advert_2.hide()
 			Blink.showing_advert = false
+	elif Input.is_action_pressed("object_2"):
+# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://SCENES/street_useful_map.tscn")
+	elif Input.is_action_pressed("object_3"):
+		if Blink.in_clues == false:
+			Blink.cup = false
+			$water_cup.hide()
+		elif Blink.in_clues:
+			Blink.info_possible = true
+			Blink.cup = false
+			$water_cup.hide()
+			Blink.clues.insert(0, "Vaso de agua")
 func _ready():
 	if Blink.in_clues:
 		$better_not.show()

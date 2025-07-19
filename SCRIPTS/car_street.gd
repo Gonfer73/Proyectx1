@@ -34,7 +34,6 @@ func _physics_process(_delta):
 		$dead.position = position_c
 		$caught_criminal.position = position_c
 		$dead.show()
-		$dead/E_icon.show()
 	
 	if Blink.reading_instructions == false:
 		$instructions_camera.current = false

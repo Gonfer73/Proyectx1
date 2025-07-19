@@ -1,7 +1,9 @@
 extends Node2D
 
 
-
+func _process(_delta):
+	if Blink.can_pass_dead:
+		$E_icon.show()
 
 
 func _input(_event):
