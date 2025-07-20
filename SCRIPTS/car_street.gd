@@ -35,12 +35,12 @@ func _physics_process(_delta):
 		$caught_criminal.position = position_c
 		$dead.show()
 	
-	if Blink.reading_instructions == false:
-		$instructions_camera.current = false
-		$car_camera.current = true
-		$car.show()
-		$car_camera/speedmeter.show()
-		Blink.car_p = $car.position
+#	if Blink.reading_instructions == false:
+#		$instructions_camera.current = false
+#		$car_camera.current = true
+#		$car.show()
+#		$car_camera/speedmeter.show()
+#		Blink.car_p = $car.position
 
 func _ready():
 	$car_camera/speedmeter.frame = 0
