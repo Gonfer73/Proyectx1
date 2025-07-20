@@ -4,10 +4,41 @@ var punto_a = Vector2(1072, -366)
 var punto_b = Vector2(6912, -288)
 var punto_c = Vector2(6936, -2472)
 var punto_d = Vector2(1080, -2472)
-var velocidad = 35555
+var velocidad = 36666
 var destino := Vector2()
 var direccion := Vector2()
 
+func _input(event):
+	if event.is_action_pressed("action"):
+		print(rotation_degrees)
+
+func _process(_delta):
+	if position.distance_to(destino) < 600:
+		if destino == punto_a:
+# warning-ignore:unused_variable
+			for i in range(90):
+				if rotation_degrees < 0:
+					rotation_degrees += 1
+					yield(get_tree().create_timer(1), "timeout")
+		elif destino == punto_b:
+	# warning-ignore:unused_variable
+				for i in range(90):
+					if rotation_degrees < -90:
+						rotation_degrees += 1
+						yield(get_tree().create_timer(1), "timeout")
+		elif destino == punto_d:
+# warning-ignore:unused_variable
+			for i in range(90):
+				if rotation_degrees < 90:
+					rotation_degrees += 1
+					yield(get_tree().create_timer(1), "timeout")
+		elif destino == punto_c:
+# warning-ignore:unused_variable
+			for i in range(90):
+				if rotation_degrees < 180 and rotation_degrees > 0:
+					rotation_degrees += 1
+					yield(get_tree().create_timer(1), "timeout")
+			
 
 func _ready():
 	$spr_enemy_car.frame = 1
@@ -22,19 +53,13 @@ func _physics_process(delta):
 		direccion = (destino - position).normalized()
 		if position.distance_to(destino) < 5:
 			if destino == punto_a:
-				$spr_enemy_car.frame = 1
-				$spr_enemy_car.flip_h = 0
 				destino = punto_d
 			elif destino == punto_b:
 				destino = punto_a
-				$spr_enemy_car.frame = 0
-				$spr_enemy_car.flip_h = 180
 			elif destino == punto_c:
-				$spr_enemy_car.frame = 2
 				destino = punto_b
 			elif destino == punto_d:
 				destino = punto_c
-				$spr_enemy_car.frame = 0
 			direccion = (destino - position).normalized()
 
 

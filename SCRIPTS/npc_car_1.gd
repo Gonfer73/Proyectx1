@@ -8,9 +8,8 @@ var velocidad = 35555
 var destino := Vector2()
 var direccion := Vector2()
 
-func _input(_event):
-	if Input.is_action_pressed("action"):
-		print(rotation_degrees)
+
+
 
 func _ready():
 	$spr_npc_car_1.frame = 0
@@ -23,14 +22,14 @@ func _process(_delta):
 		if destino == punto_a:
 # warning-ignore:unused_variable
 			for i in range(90):
-				if rotation_degrees < 0 and rotation_degrees < 0:
+				if rotation_degrees > 0:
 					rotation_degrees -= 1
 					yield(get_tree().create_timer(1), "timeout")
 		elif destino == punto_b:
 			
 	# warning-ignore:unused_variable
 				for i in range(90):
-					if rotation_degrees > -270 and rotation_degrees  < 0:
+					if rotation_degrees > 90:
 						rotation_degrees -= 1
 						yield(get_tree().create_timer(1), "timeout")
 		elif destino == punto_d:
