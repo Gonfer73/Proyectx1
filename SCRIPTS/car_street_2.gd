@@ -3,6 +3,8 @@ extends Node2D
 var position_c = 0
 
 func _ready():
+	Blink.speed = 0
+	$car_camera/speedmeter/speed.text = "0"
 	$car_camera/speedmeter.frame = 0
 
 func _process(_delta):
