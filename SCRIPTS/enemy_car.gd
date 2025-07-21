@@ -8,9 +8,6 @@ var velocidad = 36666
 var destino := Vector2()
 var direccion := Vector2()
 
-func _input(event):
-	if event.is_action_pressed("action"):
-		print(rotation_degrees)
 
 func _process(_delta):
 	if position.distance_to(destino) < 600:

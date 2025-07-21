@@ -8,6 +8,7 @@ var button = false
 var can_accelerate = true
 var can_pass_dead = false 
 var car_p = Vector2()
+var car_p_2 = Vector2()
 var case_1_gun = null
 var case_1_knife = null
 var case_1_proof = null
