@@ -67,6 +67,7 @@ var talking = false
 var tap_state = "OFF"
 var tap: bool
 var tap_frame = 0
+var ticket = false
 var update_speedmeter = true
 var water = false
 var with_knife = false
