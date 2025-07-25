@@ -29,6 +29,7 @@ var get_knife = false
 var good = false
 var guns = false
 var identification = true
+var introduced = false
 var info_possible_2 = false
 var info_possible_1 = false
 var info_possible = false
