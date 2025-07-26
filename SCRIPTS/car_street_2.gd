@@ -13,7 +13,10 @@ func _process(_delta):
 
 func _on_change_car_street_body_entered(_body):
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://SCENES/car_street.tscn")
+	Blink.street_1 = true
+	$ticket_machine.show()
+	$ticket_machine/ticket_machine_camera.current = true
+	Blink.reading_instructions = true
 
 
 func _input(_event):

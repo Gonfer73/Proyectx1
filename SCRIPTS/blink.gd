@@ -61,13 +61,13 @@ var shoot = false
 var shooting = true
 var showing_advert = false
 var speed = 0
+var street_1 = false
 var street_2 = false
 var talk = 0
 var talking = false
 var tap_state = "OFF"
 var tap: bool
 var tap_frame = 0
-var ticket = false
 var update_speedmeter = true
 var water = false
 var with_knife = false

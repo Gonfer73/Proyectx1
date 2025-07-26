@@ -45,7 +45,7 @@ func _physics_process(_delta):
 func _ready():
 	$car_camera/speedmeter.frame = 0
 	if Blink.street_2:
-		$car/spr_police_car.flip_h = 180
+		$car.rotation_degrees = 180
 		$instructions_car.hide()
 		$car.position = Vector2(7256, -1936)
 		Blink.street_2 = false
@@ -58,3 +58,13 @@ func _on_timer_enemy_timeout():
 	yield(get_tree().create_timer(3), "timeout")
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://SCENES/street.tscn")
+
+
+# warning-ignore:unused_argument
+func _on_enter_car_street_2_body_entered(body):
+	Blink.street_2 = true
+	$ticket_machine/ticket_machine_camera.current = true
+	$ticket_machine.show()
+	Blink.reading_instructions = true
+
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://SCENES/police_car.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SPRITES/tilemap_1-1.png.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://SPRITES/speedmeter_0.png" type="Texture" id=21]
 [ext_resource path="res://SCRIPTS/car_camera.gd" type="Script" id=22]
 [ext_resource path="res://SCENES/caught_criminal.tscn" type="PackedScene" id=23]
+[ext_resource path="res://SCENES/ticket_machine.tscn" type="PackedScene" id=24]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -257,9 +258,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=21]
-radius = 57.445
-height = 100.825
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 29.1899, 66.0489 )
 
 [sub_resource type="SpriteFrames" id=22]
 animations = [ {
@@ -329,9 +329,9 @@ position = Vector2( 8, -8 )
 frames = SubResource( 20 )
 
 [node name="coll_enemy_car" type="CollisionShape2D" parent="enemy_car"]
-position = Vector2( 8.06787, -8.00012 )
+position = Vector2( 6.41394, -8.76123 )
 rotation = 1.58944
-shape = SubResource( 21 )
+shape = SubResource( 30 )
 
 [node name="timer_enemy" type="Timer" parent="enemy_car"]
 wait_time = 0.001
@@ -433,7 +433,11 @@ position = Vector2( 691.2, -280 )
 [node name="caught_criminal" parent="." instance=ExtResource( 23 )]
 visible = false
 
+[node name="ticket_machine" parent="." instance=ExtResource( 24 )]
+visible = false
+position = Vector2( 6592.9, -2287.26 )
+
 [connection signal="timeout" from="enemy_car/timer_enemy" to="." method="_on_timer_enemy_timeout"]
 [connection signal="body_entered" from="car/catch_p" to="enemy_car" method="_on_catch_p_body_entered"]
 [connection signal="body_entered" from="car/npc_crash" to="car" method="_on_npc_crash_body_entered"]
-[connection signal="body_entered" from="enter_car_street_2" to="car" method="_on_enter_car_street_2_body_entered"]
+[connection signal="body_entered" from="enter_car_street_2" to="." method="_on_enter_car_street_2_body_entered"]

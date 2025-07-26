@@ -43,10 +43,7 @@ func _physics_process(delta):
 
 
 
-func _on_enter_car_street_2_body_entered(_body):
-	Blink.street_2 = true
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://SCENES/car_street_2.tscn")
+
 	
 
 
