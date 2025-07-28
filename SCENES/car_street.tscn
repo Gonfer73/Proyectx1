@@ -258,7 +258,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=30]
+[sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 29.1899, 66.0489 )
 
 [sub_resource type="SpriteFrames" id=22]
@@ -331,7 +331,7 @@ frames = SubResource( 20 )
 [node name="coll_enemy_car" type="CollisionShape2D" parent="enemy_car"]
 position = Vector2( 6.41394, -8.76123 )
 rotation = 1.58944
-shape = SubResource( 30 )
+shape = SubResource( 21 )
 
 [node name="timer_enemy" type="Timer" parent="enemy_car"]
 wait_time = 0.001
