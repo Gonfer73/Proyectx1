@@ -7,11 +7,11 @@
 [ext_resource path="res://SPRITES/empty.png" type="Texture" id=5]
 [ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 120
 font_data = ExtResource( 6 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
@@ -38,7 +38,7 @@ margin_left = 939.901
 margin_top = 642.56
 margin_right = 979.901
 margin_bottom = 801.56
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,4 +46,5 @@ __meta__ = {
 [node name="E_icon" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 1436.44, 739.419 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
+playing = true

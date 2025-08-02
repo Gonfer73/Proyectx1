@@ -18,10 +18,13 @@ func _input(_event):
 	elif Input.is_action_pressed("rotate_key") and key:
 		if wait == false:
 			$lock.frame = 2
+			$icon_d.playing = false
+			$icon_d.frame = 0
 			wait = true
 			$wait.start(2)
 # warning-ignore:return_value_discarded
 	elif Input.is_action_just_released("rotate_key") and key:
+		$icon_d.playing = true
 		wait = false
 		$lock.frame = 1
 	

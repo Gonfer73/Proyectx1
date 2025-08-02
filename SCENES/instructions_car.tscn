@@ -1,15 +1,6 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://SPRITES/speedmeter_1.png" type="Texture" id=1]
-[ext_resource path="res://SPRITES/finger_pointing.png" type="Texture" id=2]
-[ext_resource path="res://SPRITES/shift_icon.png" type="Texture" id=3]
-[ext_resource path="res://SPRITES/speedmeter_0.png" type="Texture" id=4]
 [ext_resource path="res://SCRIPTS/instructions_car.gd" type="Script" id=5]
-[ext_resource path="res://SPRITES/speedmeter_4.png" type="Texture" id=6]
-[ext_resource path="res://SPRITES/speedmeter_2.png" type="Texture" id=7]
-[ext_resource path="res://SPRITES/speedmeter_5.png" type="Texture" id=8]
-[ext_resource path="res://SPRITES/speedmeter_3.png" type="Texture" id=9]
-[ext_resource path="res://SPRITES/space_icon_2.png" type="Texture" id=10]
 [ext_resource path="res://SPRITES/icon_a.png" type="Texture" id=11]
 [ext_resource path="res://SPRITES/icon_w_dark.png" type="Texture" id=12]
 [ext_resource path="res://SPRITES/police_car_1-1.png" type="Texture" id=13]
@@ -26,7 +17,7 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -34,7 +25,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -42,7 +33,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 19 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -50,7 +41,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 14 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -58,29 +49,13 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 16 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 22 ), ExtResource( 21 ) ],
 "loop": true,
@@ -96,75 +71,35 @@ position = Vector2( 824, 496 )
 scale = Vector2( 37.16, 20 )
 texture = ExtResource( 23 )
 
-[node name="shift_icon" type="Sprite" parent="."]
-position = Vector2( 312, 240 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 3 )
-
-[node name="finger_pointing" type="Sprite" parent="shift_icon"]
-position = Vector2( -1004.06, 55.2854 )
-rotation = 3.14159
-texture = ExtResource( 2 )
-offset = Vector2( -1015.49, 295.281 )
-
-[node name="speedmeter" type="AnimatedSprite" parent="shift_icon"]
-position = Vector2( 582.857, -91.4286 )
-scale = Vector2( 0.4, 0.4 )
+[node name="icon_w" type="AnimatedSprite" parent="."]
+position = Vector2( 128, 128 )
 frames = SubResource( 1 )
 
-[node name="wait_1" type="Timer" parent="shift_icon"]
-one_shot = true
-
-[node name="space_icon_2" type="Sprite" parent="."]
-position = Vector2( 320, 568 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 10 )
-
-[node name="finger_pointing_2" type="Sprite" parent="space_icon_2"]
-position = Vector2( -994.286, 91.4283 )
-rotation = 3.14159
-texture = ExtResource( 2 )
-offset = Vector2( -1015.49, 295.281 )
-
-[node name="speedmeter_2" type="AnimatedSprite" parent="space_icon_2"]
-position = Vector2( 582.857, -91.4286 )
-scale = Vector2( 0.4, 0.4 )
+[node name="icon_s" type="AnimatedSprite" parent="."]
+position = Vector2( 128, 448 )
 frames = SubResource( 2 )
 
-[node name="wait_2" type="Timer" parent="space_icon_2"]
-one_shot = true
-
-[node name="icon_w" type="AnimatedSprite" parent="."]
-position = Vector2( 1280, 120 )
+[node name="icon_a" type="AnimatedSprite" parent="."]
+position = Vector2( 768, 320 )
 frames = SubResource( 3 )
 
-[node name="icon_s" type="AnimatedSprite" parent="."]
-position = Vector2( 1280, 319.36 )
+[node name="icon_d" type="AnimatedSprite" parent="."]
+position = Vector2( 1472, 320 )
 frames = SubResource( 4 )
 
-[node name="icon_a" type="AnimatedSprite" parent="."]
-position = Vector2( 1080, 320 )
+[node name="car_demostration_1" type="AnimatedSprite" parent="."]
+position = Vector2( 384, 472 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
 
-[node name="icon_d" type="AnimatedSprite" parent="."]
-position = Vector2( 1480, 319.36 )
-frames = SubResource( 6 )
-
-[node name="wait_3" type="Timer" parent="."]
-one_shot = true
-
-[node name="car_demostration" type="AnimatedSprite" parent="."]
-position = Vector2( 1280, 608 )
+[node name="car_demostration_2" type="AnimatedSprite" parent="."]
+position = Vector2( 1168, 344 )
 scale = Vector2( 2, 2 )
-frames = SubResource( 7 )
+frames = SubResource( 5 )
 
-[node name="icon_space_2_pass" type="AnimatedSprite" parent="."]
+[node name="icon_space" type="AnimatedSprite" parent="."]
 position = Vector2( 736, 752 )
 scale = Vector2( 0.7, 0.7 )
-frames = SubResource( 8 )
-
-[node name="timers" type="Node2D" parent="."]
-
-[connection signal="timeout" from="shift_icon/wait_1" to="." method="_on_wait_1_timeout"]
-[connection signal="timeout" from="space_icon_2/wait_2" to="." method="_on_wait_2_timeout"]
-[connection signal="timeout" from="wait_3" to="." method="_on_wait_3_timeout"]
+frames = SubResource( 6 )
+frame = 1
+playing = true

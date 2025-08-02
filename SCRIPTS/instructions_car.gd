@@ -1,64 +1,68 @@
 extends Node2D
 
+var rotating = false
+var moving = true
 
-
-
-func _input(_event):
-	if Input.is_action_pressed("ui_accept"):
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
 		Blink.reading_instructions = false
-		
-		
-# warning-ignore:return_value_discarded
 		hide()
 
 func _ready():
-	$shift_icon/wait_1.start()
-	$space_icon_2/wait_2.start()
-	$wait_3.start()
-	$icon_space_2_pass.play()
-
-
-func _on_wait_2_timeout():
-	while Blink.reading_instructions:
-		$shift_icon/finger_pointing.position = Vector2(-1004, 222)
+	$icon_a.frame = 1
+	$icon_d.frame = 0
 # warning-ignore:unused_variable
-		for i in range(6):
-			$shift_icon/speedmeter.frame += 1
-			yield(get_tree().create_timer(1), "timeout")
-		$shift_icon/finger_pointing.position = Vector2(-1004, 55)
+	for i in range(45):
+		$car_demostration_2.rotation_degrees -= 2
+		yield(get_tree().create_timer(0.03), "timeout")
+	$icon_a.frame = 0
+	$icon_d.frame = 1
 # warning-ignore:unused_variable
-		for i in range(6):
-			$shift_icon/speedmeter.frame -= 1
-			yield(get_tree().create_timer(1), "timeout")
+	for i in range(90):
+		$car_demostration_2.rotation_degrees += 2
+		yield(get_tree().create_timer(0.03), "timeout")
+	rotating = true
 
+func _process(_delta):
+	_move()
+	_rotate()
 
-func _on_wait_1_timeout():
-	while Blink.reading_instructions:
-		
-		$space_icon_2/finger_pointing_2.position = Vector2(-1004, 195)
-		$space_icon_2/speedmeter_2.frame = 1
-		yield(get_tree().create_timer(2), "timeout")
-		$space_icon_2/finger_pointing_2.position = Vector2 (-1004, 91)
-		$space_icon_2/speedmeter_2.frame = 0
-		yield(get_tree().create_timer(1), "timeout")
-
-
-func _on_wait_3_timeout():
-	while Blink.reading_instructions:
-		$car_demostration.rotation_degrees = 0
+func _move():
+	if moving and Blink.reading_instructions:
+		moving = false
 		$icon_w.frame = 1
-		yield(get_tree().create_timer(1), "timeout")
-		$icon_w.frame = 0
-		$car_demostration.rotation_degrees = 180
-		$icon_s.frame = 1
-		yield(get_tree().create_timer(1), "timeout")
 		$icon_s.frame = 0
-		$car_demostration.rotation_degrees = 90
-		$icon_d.frame = 1
-		yield(get_tree().create_timer(1), "timeout")
-		$icon_d.frame = 0
-		$car_demostration.rotation_degrees = 270
+	# warning-ignore:unused_variable
+		for i in range(160):
+			if Blink.reading_instructions:
+				if Input.is_action_pressed("acelareta"):
+					print(Blink.reading_instructions)
+				$car_demostration_1.position -= Vector2(0,2)
+				yield(get_tree().create_timer(0.005), "timeout")
+		$icon_w.frame = 0
+		$icon_s.frame = 1
+	# warning-ignore:unused_variable
+		for i in range(160):
+			if Blink.reading_instructions:
+				$car_demostration_1.position += Vector2(0,2)
+				yield(get_tree().create_timer(0.005), "timeout")
+		moving = true
+
+func _rotate():
+	if rotating and Blink.reading_instructions:
+		rotating = false
 		$icon_a.frame = 1
-		yield(get_tree().create_timer(1), "timeout")
+		$icon_d.frame = 0
+# warning-ignore:unused_variable
+		for i in range(90):
+			if Blink.reading_instructions:
+				$car_demostration_2.rotation_degrees -= 2
+				yield(get_tree().create_timer(0.03), "timeout")
 		$icon_a.frame = 0
-		
+		$icon_d.frame = 1
+# warning-ignore:unused_variable
+		for i in range(90):
+			if Blink.reading_instructions:
+				$car_demostration_2.rotation_degrees += 2
+				yield(get_tree().create_timer(0.03), "timeout")
+		rotating = true
