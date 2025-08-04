@@ -34,7 +34,7 @@ func _move():
 		$icon_s.frame = 0
 	# warning-ignore:unused_variable
 		for i in range(160):
-			if Blink.reading_instructions:
+			if Blink.reading_instructions == false:
 				if Input.is_action_pressed("acelareta"):
 					print(Blink.reading_instructions)
 				$car_demostration_1.position -= Vector2(0,2)
@@ -43,7 +43,7 @@ func _move():
 		$icon_s.frame = 1
 	# warning-ignore:unused_variable
 		for i in range(160):
-			if Blink.reading_instructions:
+			if Blink.reading_instructions == false:
 				$car_demostration_1.position += Vector2(0,2)
 				yield(get_tree().create_timer(0.005), "timeout")
 		moving = true
@@ -55,14 +55,14 @@ func _rotate():
 		$icon_d.frame = 0
 # warning-ignore:unused_variable
 		for i in range(90):
-			if Blink.reading_instructions:
+			if Blink.reading_instructions == false:
 				$car_demostration_2.rotation_degrees -= 2
 				yield(get_tree().create_timer(0.03), "timeout")
 		$icon_a.frame = 0
 		$icon_d.frame = 1
 # warning-ignore:unused_variable
 		for i in range(90):
-			if Blink.reading_instructions:
+			if Blink.reading_instructions == false:
 				$car_demostration_2.rotation_degrees += 2
 				yield(get_tree().create_timer(0.03), "timeout")
 		rotating = true

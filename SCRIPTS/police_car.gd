@@ -53,6 +53,7 @@ func _physics_process(delta):
 
 func _on_npc_crash_body_entered(_body):
 	if Blink.reading_instructions == false:
+		Blink.reading_instructions = true
 		Blink.dying = true
 		rotation_dir = 0
 		yield(get_tree().create_timer(10), "timeout")

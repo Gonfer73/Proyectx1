@@ -29,9 +29,10 @@ func _process(_delta):
 			
 	# warning-ignore:unused_variable
 				for i in range(90):
-					if rotation_degrees > 90:
-						rotation_degrees -= 1
-						yield(get_tree().create_timer(1), "timeout")
+					if Blink.reading_instructions == false:
+						if rotation_degrees > 90:
+							rotation_degrees -= 1
+							yield(get_tree().create_timer(1), "timeout")
 		elif destino == punto_d:
 # warning-ignore:unused_variable
 			for i in range(90):
