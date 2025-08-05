@@ -76,9 +76,7 @@ func _on_enter_out_body_entered(body):
 
 
 # warning-ignore:unused_argument
-func _on_car_enter_body_entered(body):
-# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://SCENES/lock.tscn")
+
 
 
 # warning-ignore:unused_argument

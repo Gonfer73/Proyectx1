@@ -18,6 +18,7 @@ func _input(_event):
 					yield(get_tree().create_timer(1), "timeout")
 
 func _process(_delta):
+	Blink.position_p = $car.position
 	position_c = $car.position + Vector2(-900, -400)
 
 func _physics_process(_delta):
