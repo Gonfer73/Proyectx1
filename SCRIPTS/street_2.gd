@@ -14,6 +14,9 @@ func _process(_delta):
 
 
 func _ready():
+	if Blink.building_1:
+		$player.position = Vector2(1920, 352)
+		Blink.building_1 = false
 	if Blink.dismounting:
 		$player/street_camera/e_icon.show()
 		$police_car.rotation_degrees = Blink.car_rotation
@@ -30,3 +33,9 @@ func _on_car_enter_body_entered(_body):
 func _on_car_enter_body_exited(_body):
 	$player/street_camera/e_icon.hide()
 	Blink.car_enter = false
+
+
+func _on_enter_building_1_body_entered(_body):
+	Blink.building_1 = true
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://SCENES/portal_building_1.tscn")
