@@ -98,3 +98,5 @@ collision_mask = 3
 current = true
 
 [connection signal="body_entered" from="exit_street" to="." method="_on_exit_street_body_entered"]
+[connection signal="body_entered" from="enter_lift_1" to="." method="_on_enter_lift_1_body_entered"]
+[connection signal="body_entered" from="enter_lift_2" to="." method="_on_enter_lift_2_body_entered"]
