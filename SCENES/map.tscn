@@ -322,7 +322,7 @@ collision_mask = 1024
 position = Vector2( -7.02667, 6.81079 )
 shape = SubResource( 24 )
 
-[node name="E_icon" type="AnimatedSprite" parent="."]
+[node name="e_icon" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 1536, 768 )
 frames = SubResource( 25 )

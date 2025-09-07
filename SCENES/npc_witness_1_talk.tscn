@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://SPRITES/icon_npc_witness_1.png" type="Texture" id=1]
+[ext_resource path="res://SPRITES/Instruction Bold.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://SPRITES/empty.png" type="Texture" id=3]
+[ext_resource path="res://SCRIPTS/npc_witness_1_talk.gd" type="Script" id=4]
+[ext_resource path="res://SPRITES/space_icon.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="npc_witness_1_talk" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="icon_npc_witness_1" type="Sprite" parent="."]
+position = Vector2( -440, -24 )
+texture = ExtResource( 1 )
+offset = Vector2( 1920, 728 )
+
+[node name="text_1_npc_witness_1" type="Label" parent="icon_npc_witness_1"]
+margin_left = 744.0
+margin_top = 576.0
+margin_right = 1768.0
+margin_bottom = 832.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "  
+   Hola, soy Juán Vázquez, usted debe ser el inspector. 
+   Puedo ayudarle en cualquier cosa, mi vivienda 
+   está a su completa disposición."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_2_npc_witness_1" type="Label" parent="icon_npc_witness_1"]
+visible = false
+margin_left = 744.0
+margin_top = 592.0
+margin_right = 1770.0
+margin_bottom = 832.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "   Supongo que ya habrá leído el informe policial, por 
+   ello omitiré esa parte. Tras escuchar los disparos
+   en el portal bajé por el ascensor sin emargo al bajar 
+   no encontré a nadie, por ello subí a mi casa con 
+   temor, ya que emepezaba a anochecer."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_3_npc_witness_1" type="Label" parent="icon_npc_witness_1"]
+visible = false
+margin_left = 744.0
+margin_top = 592.0
+margin_right = 1770.0
+margin_bottom = 832.0
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "   Sí, al bajar a la calle, en la puerta del portal 
+   me encontré con esta tarjeta arrugada y 
+   aplastada, tómela si considera que le será 
+   útil."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ask_1" type="Button" parent="icon_npc_witness_1"]
+margin_left = 848.0
+margin_top = 480.0
+margin_right = 1665.0
+margin_bottom = 566.0
+custom_fonts/font = SubResource( 3 )
+text = " Cuénteme qué ocurrió "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ask_2" type="Button" parent="icon_npc_witness_1"]
+margin_left = 848.0
+margin_top = 384.0
+margin_right = 1665.0
+margin_bottom = 470.0
+custom_fonts/font = SubResource( 3 )
+text = "¿Encontró algún objeto?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon_space_bar" type="AnimatedSprite" parent="icon_npc_witness_1"]
+position = Vector2( 1592, 792 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+frame = 1
+playing = true
+
+[connection signal="pressed" from="icon_npc_witness_1/ask_1" to="." method="_on_ask_1_pressed"]
+[connection signal="pressed" from="icon_npc_witness_1/ask_2" to="." method="_on_ask_2_pressed"]

@@ -49,6 +49,7 @@ var npc_1 = false
 var npc_2 = false
 var npc_3 = false
 var npc_4 = false
+var npc_witness_1 = false
 var office_scr = 0
 var out = false
 var pl_age: int

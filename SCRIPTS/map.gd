@@ -10,18 +10,18 @@ func _process(_delta):
 	if Input.is_action_pressed("action") and Blink.npc_1:
 			Blink.talking = true
 			$npcs/npc_1_talk.show()
-			$E_icon.hide()
+			$e_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_2:
 			Blink.talking = true
 			$npcs/npc_2_talk.show()
-			$E_icon.hide()
+			$e_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_3:
 			Blink.talking = true
 			$npcs/npc_3_talk.show()
-			$E_icon.hide()
+			$e_icon.hide()
 	if Input.is_action_pressed("action") and Blink.npc_4:
 		Blink.talking = true
-		$E_icon.hide()
+		$e_icon.hide()
 		$npcs/npc_4.velocidad = 0
 		if Blink.talk == 2:
 			$npcs/npc_4_talk.show()
@@ -93,15 +93,15 @@ func _ready():
 
 func _on_area_npc_1_body_entered(_body):
 	Blink.npc_1 = true
-	$E_icon.show()
-	$E_icon.play()
+	$e_icon.show()
+	$e_icon.play()
 	
 
 
 func _on_area_npc_4_body_entered(_body):
 	Blink.npc_4 = true
-	$E_icon.show()
-	$E_icon.frame = 0
+	$e_icon.show()
+	$e_icon.frame = 0
 	
 	
 
@@ -109,43 +109,43 @@ func _on_area_npc_4_body_entered(_body):
 # warning-ignore:unused_argument
 func _on_area_npc_1_body_exited(_body):
 	Blink.npc_1 = false
-	$E_icon.hide()
+	$e_icon.hide()
 
 
 func _on_area_npc_4_body_exited(_body):
 	Blink.npc_4 = false
-	$E_icon.hide()
+	$e_icon.hide()
 
 
 func _on_area_npc_3_body_entered(_body):
 	Blink.npc_3 = true
-	$E_icon.show()
-	$E_icon.play()
+	$e_icon.show()
+	$e_icon.play()
 	
 
 
 
 func _on_area_npc_3_body_exited(_body):
 	Blink.npc_3 = false
-	$E_icon.hide()
+	$e_icon.hide()
 
 
 func _on_area_npc_2_body_entered(_body):
 	Blink.npc_2 = true
-	$E_icon.show()
-	$E_icon.play()
+	$e_icon.show()
+	$e_icon.play()
 
 
 func _on_area_npc_2_body_exited(_body):
 	Blink.npc_2 = false
-	$E_icon.hide()
+	$e_icon.hide()
 
 func _on_enter_water_body_exited(body):
 	Blink.water = false
-	$E_icon.hide()
+	$e_icon.hide()
 
 
 func _on_enter_water_body_entered(_body):
 	Blink.water= true
-	$E_icon.show()
-	$E_icon.play()
+	$e_icon.show()
+	$e_icon.play()
