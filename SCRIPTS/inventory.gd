@@ -49,6 +49,10 @@ func _input(_event):
 			Blink.cup = false
 			$water_cup.hide()
 			Blink.clues.insert(0, "Vaso de agua")
+	elif Input.is_action_pressed("object_5"):
+		if Blink.business_card:
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://SCENES/business_card.tscn")
 func _ready():
 	if Blink.in_clues:
 		$better_not.show()
@@ -62,6 +66,8 @@ func _ready():
 		$identification.show()
 	if Blink.knife:
 		$knife.show()
+	if Blink.business_card:
+		$business_card.show()
 
 
 func _on_better_not_pressed():

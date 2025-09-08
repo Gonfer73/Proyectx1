@@ -64,7 +64,7 @@ custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "   Supongo que ya habrá leído el informe policial, por 
    ello omitiré esa parte. Tras escuchar los disparos
-   en el portal bajé por el ascensor sin emargo al bajar 
+   en el portal bajé por el ascensor sin embargo al bajar 
    no encontré a nadie, por ello subí a mi casa con 
    temor, ya que emepezaba a anochecer."
 __meta__ = {

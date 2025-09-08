@@ -4,6 +4,7 @@ var bad = false
 var bad_button = false
 var bars = false
 var bullet_player = false
+var business_card = false
 var button = false
 var building_1 = false
 var can_accelerate = true

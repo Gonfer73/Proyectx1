@@ -6,6 +6,9 @@ func _process(_delta):
 	if Input.is_action_pressed("action") and Blink.npc_witness_1:
 		Blink.talking = true
 		$npc_witness_1_talk.show()
+		$npc_witness_1_talk/icon_npc_witness_1/ask_1.show()
+		$npc_witness_1_talk/icon_npc_witness_1/text_2_npc_witness_1.hide()
+		$npc_witness_1_talk/icon_npc_witness_1/text_3_npc_witness_1.hide()
 		$e_icon.hide()
 
 func _ready():
