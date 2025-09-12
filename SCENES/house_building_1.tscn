@@ -147,6 +147,7 @@ position = Vector2( 16, 0 )
 visible = false
 position = Vector2( 1528, 760 )
 frames = SubResource( 11 )
+frame = 1
 playing = true
 
 [connection signal="body_entered" from="npc_witness/area_npc_witness" to="." method="_on_area_npc_witness_body_entered"]

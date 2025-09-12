@@ -24,6 +24,12 @@ func _input(_event):
 		if Blink.in_clues:
 # warning-ignore:return_value_discarded
 			get_tree().change_scene("res://SCENES/case_!_2.tscn")
+		if Blink.inventory_house:
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://SCENES/house_building_1.tscn")
+		if Blink.inventory_cor_1:
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://SCENES/corridor_1.tscn")
 	elif Input.is_action_pressed("object_1") and Blink.showing_advert == false:
 		if Blink.in_clues:
 			Blink.showing_advert = true
